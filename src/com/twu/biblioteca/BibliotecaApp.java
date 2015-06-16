@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
-
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
@@ -28,7 +26,7 @@ public class BibliotecaApp {
             outputHandler.display(MENU_OPTIONS);
             choice = inputHandler.readInteger();
             if (choice == 1) {
-                PromptForCheckOut();
+                promptForCheckingoutBooks();
                 if (checkout.isInterestedToCheckOut()) {
                     outputHandler.display(ENTER_BOOK_NAME);
                     checkout.checkOutBook();
@@ -37,7 +35,10 @@ public class BibliotecaApp {
                 outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
                 returnBook.getBookDetails(outputHandler);
             } else if (choice == 3) {
-                outputHandler.display(movies);
+                promptForCheckingoutMovies();
+                if(checkout.isInterestedToCheckOut()) {
+                    outputHandler.display(ENTER_MOVIE_NAME);
+                }
             } else if (choice == 4)
                 outputHandler.display(QUIT_MESSAGE);
 
@@ -47,8 +48,13 @@ public class BibliotecaApp {
         } while (choice != 4);
     }
 
-    private void PromptForCheckOut() {
+    private void promptForCheckingoutBooks() {
         outputHandler.display(books);
-        outputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
+        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_BOOK);
+    }
+
+    private void promptForCheckingoutMovies() {
+        outputHandler.display(movies);
+        
     }
 }

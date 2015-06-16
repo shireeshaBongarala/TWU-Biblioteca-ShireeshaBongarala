@@ -97,10 +97,9 @@ public class BibliotecaAppTest {
     }
     @Test
     public void shouldDisplayListOfMoviesWhenUserSelectsChoiceThree(){
-       Movie movie = new Movie("C",1990,"Balagurusamy",10);
-        ArrayList <Movie> movieList = new ArrayList<Movie>();
-        movieList.add(movie);
-        Movies movies = new Movies(movieList);
+        Library library = new Library();
+        Movies movies = new Movies((library.getAvailableMovieList()));
+
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,movies);
 

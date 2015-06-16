@@ -10,7 +10,7 @@ public class EntryPoint {
         Library library = new Library();
         ArrayList<Movie> movieList = new ArrayList<Movie>();
         movieList.add(new Movie("IronMan",2000,"James",9));
-        Movies movies = new Movies(movieList);
+        Movies movies = new Movies(library.getAvailableMovieList());
         new BibliotecaApp(
                 outputHandler,
                 inputHandler,
