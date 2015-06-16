@@ -34,5 +34,8 @@ OutputHandler outputHandler;
         if(library.additionToCheckedOutMovieListIsSuccessful(movieName)) {
             outputHandler.display(Messages.SUCCESSFUL_MOVIE_CHECKOUT);
         }
+        else
+            outputHandler.display(THAT_MOVIE_IS_NOT_AVAILABLE);
+
     }
 }

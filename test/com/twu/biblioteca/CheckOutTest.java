@@ -79,5 +79,16 @@ public class CheckOutTest {
 
         verify(outputHandlerMock).display(SUCCESSFUL_MOVIE_CHECKOUT);
     }
+    @Test
+    public void shouldDisplayUnSuccessfulCheckOutMessageWhenMovieIsNotFound() {
+        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock,libraryMock);
+
+
+        when(inputHandlerMock.readLine())
+                .thenReturn("IronLady");
+        checkOut.checkOutMovie();
+
+        verify(outputHandlerMock).display(THAT_MOVIE_IS_NOT_AVAILABLE);
+    }
 }
 
