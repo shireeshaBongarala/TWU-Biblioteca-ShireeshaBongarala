@@ -127,4 +127,17 @@ public class BibliotecaAppTest {
         List<String> capturedText = textCaptor.getAllValues();
         assertEquals(PROMPT_USER_FOR_CHECKOUT_MOVIE, capturedText.get(2));
     }
+    @Test
+    public void shouldCallCheckoutMovieIfUserIsInterestedToCheckOutAMovie() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,moviesMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+        when(checkOutMock.isInterestedToCheckOut())
+                .thenReturn(true);
+        bibliotecaApp.start();
+
+        verify(checkOutMock).checkOutMovie();
+    }
 }

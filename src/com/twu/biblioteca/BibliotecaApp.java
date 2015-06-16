@@ -38,6 +38,7 @@ public class BibliotecaApp {
                 promptForCheckingoutMovies();
                 if(checkout.isInterestedToCheckOut()) {
                     outputHandler.display(ENTER_MOVIE_NAME);
+                    checkout.checkOutMovie();
                 }
             } else if (choice == 4)
                 outputHandler.display(QUIT_MESSAGE);
