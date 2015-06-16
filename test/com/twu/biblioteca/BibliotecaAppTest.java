@@ -2,17 +2,18 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import java.util.List;
 
-import java.util.ArrayList;
+import static com.twu.biblioteca.Messages.*;
+import static org.junit.Assert.assertEquals;
 
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-//
+
 @RunWith(MockitoJUnitRunner.class)
 public class BibliotecaAppTest {
     @Mock
@@ -54,7 +55,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, expectedBooks , returnBookMock, checkOutMock,moviesMock);
         bibliotecaApp.start();
 
-        verify(outputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
+        verify(outputHandlerMock, atLeast(1)).display(QUIT_MESSAGE);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class BibliotecaAppTest {
                 .thenReturn(8,4);
         bibliotecaApp.start();
 
-        verify(outputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
+        verify(outputHandlerMock, atLeast(1)).display(ERROR_MESSAGE);
     }
 
     @Test
@@ -108,5 +109,22 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(outputHandlerMock).display(movies);
+    }
+    @Test
+    public void shouldPromptUserForCheckingOutMoviesWhenUserSelectsChoiceThree(){
+        Library library = new Library();
+        Movies movies = new Movies((library.getAvailableMovieList()));
+        ArgumentCaptor <String> textCaptor = ArgumentCaptor.forClass(String.class);
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,movies);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+        bibliotecaApp.start();
+
+        verify(outputHandlerMock,times(5)).display(textCaptor.capture());
+        List<String> capturedText = textCaptor.getAllValues();
+        assertEquals(PROMPT_USER_FOR_CHECKOUT_MOVIE, capturedText.get(2));
     }
 }

@@ -55,6 +55,6 @@ public class BibliotecaApp {
 
     private void promptForCheckingoutMovies() {
         outputHandler.display(movies);
-        
+        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_MOVIE);
     }
 }
