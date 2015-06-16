@@ -35,7 +35,7 @@ public class CheckOutTest {
         when(inputHandlerMock.readLine())
                 .thenReturn("C++");
 
-        verify(outputHandlerMock).display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
+        verify(outputHandlerMock).display(THAT_BOOK_IS_NOT_AVAILABLE);
     }
 
     @Test
@@ -66,7 +66,18 @@ public class CheckOutTest {
 
         checkOut.checkOutBook();
 
-        verify(outputHandlerMock).display(SUCCESSFUL_CHECKOUT_MESSAGE);
+        verify(outputHandlerMock).display(SUCCESSFUL_BOOK_CHECKOUT);
+    }
+
+    @Test
+    public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredMovieIsAvailable(){
+        Library library = new Library();
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("IronMan".getBytes()));
+        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler,library);
+
+        checkOut.checkOutMovie();
+
+        verify(outputHandlerMock).display(SUCCESSFUL_MOVIE_CHECKOUT);
     }
 }
 
