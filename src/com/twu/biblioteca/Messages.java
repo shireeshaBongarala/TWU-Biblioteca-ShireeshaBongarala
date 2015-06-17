@@ -19,4 +19,6 @@ public interface Messages {
     public String THAT_MOVIE_IS_NOT_AVAILABLE = "That movie is not avaialable\n";
     public String SUCCESSFUL_MOVIE_RETURN = "Thank you for returning the movie\n";
     public String UNSUCCESSFUL_MOVIE_RETURN = "This is not a valid movie to return\n";
+
+    public String MAIN_MENU_OPTIONS = "Select Choice:\n1. Book List\n2. Movie List \n3. Login \n4.Quit\n";
 }
