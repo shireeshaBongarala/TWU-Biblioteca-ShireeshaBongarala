@@ -29,6 +29,9 @@ public class Library {
     public ArrayList<Book> getAvailableBookList(){
         return availableBookList;
     }
+    public ArrayList<Movie> getAvailableMovieList() {
+        return availableMovieList;
+    }
 
     public boolean additionToAvailableBookListIsSuccessful(String bookName) {
         for(Book book : checkedOutBookList) {
@@ -50,10 +53,17 @@ public class Library {
         }
         return false;
     }
-
-    public ArrayList<Movie> getAvailableMovieList() {
-        return availableMovieList;
+    public boolean additionToAvailableMovieListIsSuccessful(String movieName) {
+        for(Movie movie : checkedOutMovieList) {
+            if (movie.getName().equals(movieName)) {
+                availableMovieList.add(movie);
+                checkedOutMovieList.remove(movie);
+                return true;
+            }
+        }
+        return false;
     }
+
 
     public boolean additionToCheckedOutMovieListIsSuccessful(String movieName) {
         for(Movie  movie : availableMovieList){
@@ -65,4 +75,5 @@ public class Library {
         }
         return false;
     }
+
 }

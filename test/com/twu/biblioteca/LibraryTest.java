@@ -59,6 +59,14 @@ public class LibraryTest {
 
         assertThat(library.additionToCheckedOutMovieListIsSuccessful(movieName),is(true));
     }
+    @Test
+    public void shouldAddToAvialableMovieListWhenItIsValidCheckedOutMovie() {
+        Library library = new Library();
+
+        String movieName = "DarkKnight";
+
+        assertThat(library.additionToAvailableMovieListIsSuccessful(movieName),is(true));
+    }
 }
 
 
