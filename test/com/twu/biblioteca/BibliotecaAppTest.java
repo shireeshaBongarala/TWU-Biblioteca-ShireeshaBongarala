@@ -30,6 +30,22 @@ public class BibliotecaAppTest {
     private Movies moviesMock;
 
     @Test
+    public void shouldDisplayWelcomeMessageWhenBibliotecaAppStarts() {
+        Library library = new Library();
+        Books expectedBooks = new Books(library.getAvailableBookList());
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(5);
+
+        BibliotecaApp bibliotecaApp =
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock, checkOutItemMock, moviesMock);
+        bibliotecaApp.start();
+
+
+        verify(outputHandlerMock,atLeast(1)).display(WELCOME_MESSAGE);
+    }
+
+    @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
@@ -44,7 +60,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void shouldDisplayQuitMessageWhenChoiceIsTwo(){
+    public void shouldDisplayQuitMessageWhenChoiceIsFive(){
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
 
@@ -152,6 +168,5 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(returnItemMock).returnMovie();
-
     }
 }

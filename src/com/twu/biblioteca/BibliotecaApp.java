@@ -23,6 +23,7 @@ public class BibliotecaApp {
     }
 
     public void start() {
+        outputHandler.display(WELCOME_MESSAGE);
         do {
             outputHandler.display(MENU_OPTIONS);
             choice = inputHandler.readInteger();
