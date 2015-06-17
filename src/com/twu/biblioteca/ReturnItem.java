@@ -28,6 +28,12 @@ public class ReturnItem {
 
 
     public void returnMovie() {
-        outputHandler.display(UNSUCCESSFUL_MOVIE_RETURN);
+        String movieName = inputHandler.readLine();
+        if (library.additionToAvailableMovieListIsSuccessful(movieName)) {
+            outputHandler.display(SUCCESSFUL_MOVIE_RETURN);
+        } else {
+            outputHandler.display(UNSUCCESSFUL_MOVIE_RETURN);
+        }
     }
 }
+

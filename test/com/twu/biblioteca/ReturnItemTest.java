@@ -54,4 +54,14 @@ public class ReturnItemTest {
         verify(outputHandlerMock).display(UNSUCCESSFUL_MOVIE_RETURN);
 
     }
+    @Test
+    public void shouldDisplaySuccessfulReturnMessageWhenItIsAValidMovie(){
+        Library library = new Library();
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("DarkKnight".getBytes()));
+        ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
+
+        returnItem.returnMovie();
+
+        verify(outputHandlerMock).display(SUCCESSFUL_MOVIE_RETURN);
+    }
 }
