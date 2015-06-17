@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 public class EntryPoint {
     public static void main(String args[]) {
@@ -10,7 +9,7 @@ public class EntryPoint {
         Library library = new Library();
         Movies movies = new Movies(library.getAvailableMovieList());
         new BibliotecaApp(
-                outputHandler, inputHandler, new Books(library.getAvailableBookList()), new ReturnBook(System.in,library),
+                outputHandler, inputHandler, new Books(library.getAvailableBookList()), new ReturnItem(System.in,library),
                 new CheckOut(outputHandler, inputHandler,library),movies).start();
     }
 }

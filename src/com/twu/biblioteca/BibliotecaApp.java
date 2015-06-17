@@ -7,16 +7,16 @@ public class BibliotecaApp {
     OutputHandler outputHandler;
     InputHandler inputHandler;
     Books books;
-    ReturnBook returnBook;
+    ReturnItem returnItem;
     CheckOut checkout;
     Library library;
     Movies movies;
 
-    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnBook returnBook, CheckOut checkOut, Movies movies) {
+    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnItem returnItem, CheckOut checkOut, Movies movies) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.books = books;
-        this.returnBook = returnBook;
+        this.returnItem = returnItem;
         this.checkout = checkOut;
         this.movies = movies;
     }
@@ -33,7 +33,7 @@ public class BibliotecaApp {
                 }
             } else if (choice == 2) {
                 outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-                returnBook.getBookDetails(outputHandler);
+                returnItem.getBookDetails(outputHandler);
             } else if (choice == 3) {
                 promptForCheckingoutMovies();
                 if(checkout.isInterestedToCheckOut()) {

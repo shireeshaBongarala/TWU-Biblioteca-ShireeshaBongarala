@@ -6,11 +6,11 @@ import java.util.Scanner;
 import static com.twu.biblioteca.Messages.*;
 
 
-public class ReturnBook {
+public class ReturnItem {
     private final Scanner scanner;
     private Library library;
 
-    public ReturnBook(InputStream in,Library library) {
+    public ReturnItem(InputStream in, Library library) {
         scanner = new Scanner(in);
         this.library = library;
     }
