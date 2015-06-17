@@ -4,12 +4,12 @@ import static com.twu.biblioteca.Messages.SUCCESSFUL_BOOK_CHECKOUT;
 import static com.twu.biblioteca.Messages.THAT_BOOK_IS_NOT_AVAILABLE;
 import static com.twu.biblioteca.Messages.THAT_MOVIE_IS_NOT_AVAILABLE;
 
-public class CheckOut {
+public class CheckOutItem {
 OutputHandler outputHandler;
     InputHandler inputHandler;
     Library library;
 
-    CheckOut(OutputHandler OutputHandler, InputHandler inputHandler,Library library) {
+    CheckOutItem(OutputHandler OutputHandler, InputHandler inputHandler, Library library) {
         this.outputHandler = OutputHandler;
         this.inputHandler = inputHandler;
         this.library = library;

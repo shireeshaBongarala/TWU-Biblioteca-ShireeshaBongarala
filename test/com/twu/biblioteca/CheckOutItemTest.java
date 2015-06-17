@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CheckOutTest {
+public class CheckOutItemTest {
     @Mock
     private OutputHandler outputHandlerMock;
 
@@ -29,8 +29,8 @@ public class CheckOutTest {
 
     @Test
     public void shouldDisplayUnSuccessfulCheckOutMessageWhenBookIsNotFound() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock,libraryMock);
-        checkOut.checkOutBook();
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock, inputHandlerMock,libraryMock);
+        checkOutItem.checkOutBook();
 
         when(inputHandlerMock.readLine())
                 .thenReturn("C++");
@@ -41,9 +41,9 @@ public class CheckOutTest {
     @Test
     public void shouldReturnTrueIfUserIsInterestedToCheckOutABook() {
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\ny".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler,libraryMock);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock, inputHandler,libraryMock);
 
-        boolean actualResult = checkOut.isInterestedToCheckOut();
+        boolean actualResult = checkOutItem.isInterestedToCheckOut();
 
         assertThat(actualResult,is(true));
     }
@@ -51,9 +51,9 @@ public class CheckOutTest {
     @Test
     public void shouldReturnFalseIfUserIsNotInterestedToCheckOutABook() {
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nn".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler,libraryMock);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock, inputHandler,libraryMock);
 
-        boolean actualResult = checkOut.isInterestedToCheckOut();
+        boolean actualResult = checkOutItem.isInterestedToCheckOut();
 
         assertThat(actualResult,is(false));
 
@@ -62,9 +62,9 @@ public class CheckOutTest {
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
         Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler,library);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
 
-        checkOut.checkOutBook();
+        checkOutItem.checkOutBook();
 
         verify(outputHandlerMock).display(SUCCESSFUL_BOOK_CHECKOUT);
     }
@@ -73,20 +73,20 @@ public class CheckOutTest {
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredMovieIsAvailable(){
         Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("IronMan".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler,library);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
 
-        checkOut.checkOutMovie();
+        checkOutItem.checkOutMovie();
 
         verify(outputHandlerMock).display(SUCCESSFUL_MOVIE_CHECKOUT);
     }
     @Test
     public void shouldDisplayUnSuccessfulCheckOutMessageWhenMovieIsNotFound() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock,libraryMock);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock, inputHandlerMock,libraryMock);
 
 
         when(inputHandlerMock.readLine())
                 .thenReturn("IronLady");
-        checkOut.checkOutMovie();
+        checkOutItem.checkOutMovie();
 
         verify(outputHandlerMock).display(THAT_MOVIE_IS_NOT_AVAILABLE);
     }

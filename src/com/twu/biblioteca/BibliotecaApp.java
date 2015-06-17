@@ -8,16 +8,16 @@ public class BibliotecaApp {
     InputHandler inputHandler;
     Books books;
     ReturnItem returnItem;
-    CheckOut checkout;
+    CheckOutItem checkout;
     Library library;
     Movies movies;
 
-    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnItem returnItem, CheckOut checkOut, Movies movies) {
+    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.books = books;
         this.returnItem = returnItem;
-        this.checkout = checkOut;
+        this.checkout = checkOutItem;
         this.movies = movies;
     }
 

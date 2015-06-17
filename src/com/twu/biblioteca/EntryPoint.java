@@ -10,6 +10,6 @@ public class EntryPoint {
         Movies movies = new Movies(library.getAvailableMovieList());
         new BibliotecaApp(
                 outputHandler, inputHandler, new Books(library.getAvailableBookList()), new ReturnItem(outputHandler,inputHandler,library),
-                new CheckOut(outputHandler, inputHandler,library),movies).start();
+                new CheckOutItem(outputHandler, inputHandler,library),movies).start();
     }
 }
