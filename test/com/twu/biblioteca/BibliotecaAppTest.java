@@ -140,4 +140,18 @@ public class BibliotecaAppTest {
 
         verify(checkOutItemMock).checkOutMovie();
     }
+    @Test
+    public void shouldCallReturnMovieIfUserSelectsChoiceFour() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutItemMock,moviesMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(4,5);
+        when(checkOutItemMock.isInterestedToCheckOut())
+                .thenReturn(true);
+        bibliotecaApp.start();
+
+        verify(returnItemMock).returnMovie();
+
+    }
 }

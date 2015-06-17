@@ -12,13 +12,14 @@ public class BibliotecaApp {
     Library library;
     Movies movies;
 
-    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
+    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
+                         ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
-        this.books = books;
         this.returnItem = returnItem;
         this.checkout = checkOutItem;
         this.movies = movies;
+        this.books = books;
     }
 
     public void start() {
@@ -36,6 +37,9 @@ public class BibliotecaApp {
                 case 3:
                     movieListOption();
                     break;
+                case 4:
+                    returnMovieOption();
+                    break;
                 case 5:
                     outputHandler.display(QUIT_MESSAGE);
                     break;
@@ -44,6 +48,11 @@ public class BibliotecaApp {
             }
 
         } while (choice != 5);
+    }
+
+    private void returnMovieOption() {
+        outputHandler.display(ENTER_MOVIE_NAME);
+        returnItem.returnMovie();
     }
 
     private void movieListOption() {
