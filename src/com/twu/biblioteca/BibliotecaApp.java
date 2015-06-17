@@ -25,28 +25,46 @@ public class BibliotecaApp {
         do {
             outputHandler.display(MENU_OPTIONS);
             choice = inputHandler.readInteger();
-            if (choice == 1) {
-                promptForCheckingoutBooks();
-                if (checkout.isInterestedToCheckOut()) {
-                    outputHandler.display(ENTER_BOOK_NAME);
-                    checkout.checkOutBook();
-                }
-            } else if (choice == 2) {
-                outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-                returnItem.returnBook();
-            } else if (choice == 3) {
-                promptForCheckingoutMovies();
-                if(checkout.isInterestedToCheckOut()) {
-                    outputHandler.display(ENTER_MOVIE_NAME);
-                    checkout.checkOutMovie();
-                }
-            } else if (choice == 5)
-                outputHandler.display(QUIT_MESSAGE);
 
-            else
-                outputHandler.display(ERROR_MESSAGE);
+            switch (choice) {
+                case 1:
+                    bookListOption();
+                    break;
+                case 2:
+                    returnBookOption();
+                    break;
+                case 3:
+                    movieListOption();
+                    break;
+                case 5:
+                    outputHandler.display(QUIT_MESSAGE);
+                    break;
+                default:
+                    outputHandler.display(ERROR_MESSAGE);
+            }
 
         } while (choice != 5);
+    }
+
+    private void movieListOption() {
+        promptForCheckingoutMovies();
+        if (checkout.isInterestedToCheckOut()) {
+            outputHandler.display(ENTER_MOVIE_NAME);
+            checkout.checkOutMovie();
+        }
+    }
+
+    private void returnBookOption() {
+        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+        returnItem.returnBook();
+    }
+
+    private void bookListOption() {
+        promptForCheckingoutBooks();
+        if (checkout.isInterestedToCheckOut()) {
+            outputHandler.display(ENTER_BOOK_NAME);
+            checkout.checkOutBook();
+        }
     }
 
     private void promptForCheckingoutBooks() {

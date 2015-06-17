@@ -8,8 +8,10 @@ public class EntryPoint {
         InputHandler inputHandler = new InputHandler(System.in);
         Library library = new Library();
         Movies movies = new Movies(library.getAvailableMovieList());
+        Books books = new Books(library.getAvailableBookList());
+
         new BibliotecaApp(
-                outputHandler, inputHandler, new Books(library.getAvailableBookList()), new ReturnItem(outputHandler,inputHandler,library),
+                outputHandler, inputHandler,books,new ReturnItem(outputHandler,inputHandler,library),
                 new CheckOutItem(outputHandler, inputHandler,library),movies).start();
     }
 }
