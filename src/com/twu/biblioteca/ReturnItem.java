@@ -7,21 +7,23 @@ import static com.twu.biblioteca.Messages.*;
 
 
 public class ReturnItem {
-    private final Scanner scanner;
+    private OutputHandler outputHandler;
+    private InputHandler inputHandler;
     private Library library;
 
-    public ReturnItem(InputStream in, Library library) {
-        scanner = new Scanner(in);
+    public ReturnItem(OutputHandler outputHandler, InputHandler inputHandler, Library library) {
+        this.inputHandler = inputHandler;
+        this.outputHandler = outputHandler;
         this.library = library;
     }
 
-    public void getBookDetails(OutputHandler outputHandler) {
-        String bookName = scanner.nextLine();
-        if(library.additionToAvailableBookListIsSuccessful(bookName)) {
+    public void returnBook() {
+        String bookName = inputHandler.readLine();
+        if (library.additionToAvailableBookListIsSuccessful(bookName)) {
             outputHandler.display(SUCCESSFUL_BOOK_RETURN);
-        }
-        else {
+        } else {
             outputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
         }
     }
+
 }

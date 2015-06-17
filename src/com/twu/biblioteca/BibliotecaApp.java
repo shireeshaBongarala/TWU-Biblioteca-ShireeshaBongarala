@@ -33,7 +33,7 @@ public class BibliotecaApp {
                 }
             } else if (choice == 2) {
                 outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-                returnItem.getBookDetails(outputHandler);
+                returnItem.returnBook();
             } else if (choice == 3) {
                 promptForCheckingoutMovies();
                 if(checkout.isInterestedToCheckOut()) {

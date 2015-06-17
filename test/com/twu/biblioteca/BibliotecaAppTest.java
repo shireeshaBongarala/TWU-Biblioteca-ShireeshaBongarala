@@ -80,7 +80,7 @@ public class BibliotecaAppTest {
                 .thenReturn(2,4);
                bibliotecaApp.start();
 
-        verify(returnItemMock).getBookDetails(outputHandlerMock);
+        verify(returnItemMock).returnBook();
     }
 
     @Test

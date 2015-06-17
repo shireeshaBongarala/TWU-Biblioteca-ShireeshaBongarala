@@ -17,24 +17,31 @@ public class ReturnItemTest {
     private OutputHandler outputHandlerMock;
     @Mock
     private Library libraryMock;
+    @Mock
+    private InputHandler inputHandlerMock;
 
-    @Test
-    public void shouldAddABookIfItIsValidBookToBeReturned() {
-        Library library = new Library();
-        ReturnItem returnItem = new ReturnItem(new ByteArrayInputStream("Let Us C".getBytes()),library);
-
-        returnItem.getBookDetails(outputHandlerMock);
-
-        verify(outputHandlerMock).display(SUCCESSFUL_BOOK_RETURN);
-    }
 
     @Test
     public void shouldNotAddABookIfItIsValidBookToBeReturned() {
         Library library = new Library();
-        ReturnItem returnItem = new ReturnItem(new ByteArrayInputStream("C++".getBytes()),library);
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
+        ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
-        returnItem.getBookDetails(outputHandlerMock);
+        returnItem.returnBook();
 
         verify(outputHandlerMock).display(UNSUCCESSFUL_BOOK_RETURN);
     }
+
+
+    @Test
+    public void shouldDisplaySuccessfulReturnMessageWhenItIsAValidBook(){
+        Library library = new Library();
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("Let Us C".getBytes()));
+        ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
+
+        returnItem.returnBook();
+
+        verify(outputHandlerMock).display(SUCCESSFUL_BOOK_RETURN);
+    }
+
 }

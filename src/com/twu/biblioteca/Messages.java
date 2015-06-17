@@ -16,4 +16,5 @@ public interface Messages {
     public String ENTER_MOVIE_NAME = "Enter the movie name for check out.:\n";
     public String SUCCESSFUL_MOVIE_CHECKOUT = "Thank you! Enjoy the movie.\n";
     public String THAT_MOVIE_IS_NOT_AVAILABLE = "That movie is not avaialable\n";
+    public String SUCCESSFUL_MOVIE_RETURN = "Thank you for returning the movie\n";
 }
