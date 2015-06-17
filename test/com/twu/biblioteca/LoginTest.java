@@ -7,16 +7,16 @@ import static com.twu.biblioteca.Messages.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class MainMenuTest {
-   @Mock
-   OutputHandler outputHandlerMock;
+public class LoginTest {
+    @Mock
+    OutputHandler outputHandlerMock;
     @Test
-    public void shouldDisplayMainMenuOptions() {
+    public void shouldPromptUserToInputLibraryId() {
         outputHandlerMock = mock(OutputHandler.class);
-        MainMenu mainMenu = new MainMenu(outputHandlerMock);
+        Login login = new Login(outputHandlerMock);
 
-        mainMenu.displayOptions();
+        login.getDetails();
 
-        verify(outputHandlerMock).display(MAIN_MENU_OPTIONS);
+        verify(outputHandlerMock).display(ENTER_LIBRARY_ID);
     }
 }

@@ -66,8 +66,14 @@ public class BibliotecaApp {
     }
 
     private void returnBookOption() {
-        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-        returnItem.returnBook();
+        System.out.println("Enter library ID :");
+        String libraryId = inputHandler.readLine();
+        System.out.println("Enter password :");
+        String password = inputHandler.readLine();
+        if (authentication.validate(libraryId, password)) {
+            outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+            returnItem.returnBook();
+        }
     }
 
     private void bookListOption() {

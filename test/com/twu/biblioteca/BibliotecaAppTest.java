@@ -28,6 +28,8 @@ public class BibliotecaAppTest {
     private Books booksMock;
     @Mock
     private Movies moviesMock;
+    @Mock
+    private Authentication authenticationMock;
 
     @Test
     public void shouldDisplayWelcomeMessageWhenBibliotecaAppStarts() {
@@ -89,12 +91,15 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldGetBookDetailsIfUserWantsToReturnABook() {
+
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutItemMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,5);
                bibliotecaApp.start();
+        when(inputHandlerMock.readLine())
+                .thenReturn("123-4567","password123");
 
         verify(returnItemMock).returnBook();
     }

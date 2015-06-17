@@ -63,8 +63,6 @@ public class Library {
         }
         return false;
     }
-
-
     public boolean additionToCheckedOutMovieListIsSuccessful(String movieName) {
         for(Movie  movie : availableMovieList){
             if(movie.getName().equals(movieName)) {
@@ -75,5 +73,4 @@ public class Library {
         }
         return false;
     }
-
 }
