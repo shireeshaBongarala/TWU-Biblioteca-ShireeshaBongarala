@@ -67,6 +67,14 @@ public class LibraryTest {
 
         assertThat(library.additionToAvailableMovieListIsSuccessful(movieName),is(true));
     }
+    @Test
+    public void shouldNotAddToAvailableMovieListWhenItIsNotAValidCheckedOutMovie(){
+        Library library = new Library();
+
+        String movieName = "IronMan";
+
+        assertThat(library.additionToAvailableBookListIsSuccessful(movieName),is(false));
+    }
 }
 
 
