@@ -26,4 +26,8 @@ public class ReturnItem {
         }
     }
 
+
+    public void returnMovie() {
+        outputHandler.display(UNSUCCESSFUL_MOVIE_RETURN);
+    }
 }

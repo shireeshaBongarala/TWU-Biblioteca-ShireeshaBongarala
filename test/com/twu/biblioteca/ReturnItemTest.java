@@ -22,7 +22,7 @@ public class ReturnItemTest {
 
 
     @Test
-    public void shouldNotAddABookIfItIsValidBookToBeReturned() {
+    public void shouldNotAddABookIfItIsNotValidBookToBeReturned() {
         Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
         ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
@@ -43,5 +43,15 @@ public class ReturnItemTest {
 
         verify(outputHandlerMock).display(SUCCESSFUL_BOOK_RETURN);
     }
+    @Test
+    public void shouldNotAddAMovieIfItIsNotValidMovieToBeReturned() {
+        Library library = new Library();
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("IronMan".getBytes()));
+        ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
+        returnItem.returnMovie();
+
+        verify(outputHandlerMock).display(UNSUCCESSFUL_MOVIE_RETURN);
+
+    }
 }
