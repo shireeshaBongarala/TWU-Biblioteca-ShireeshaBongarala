@@ -40,13 +40,13 @@ public class BibliotecaApp {
                     outputHandler.display(ENTER_MOVIE_NAME);
                     checkout.checkOutMovie();
                 }
-            } else if (choice == 4)
+            } else if (choice == 5)
                 outputHandler.display(QUIT_MESSAGE);
 
             else
                 outputHandler.display(ERROR_MESSAGE);
 
-        } while (choice != 4);
+        } while (choice != 5);
     }
 
     private void promptForCheckingoutBooks() {

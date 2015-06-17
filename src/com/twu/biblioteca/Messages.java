@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 public interface Messages {
     public String WELCOME_MESSAGE = "Welcome to Biblioteca Library Management System\n";
     public String ERROR_MESSAGE = "Select a valid option!\n";
-    public String MENU_OPTIONS = "Select Choice:\n1. Book List\n2.Return Book\n3.Movie List\n4.Quit\n";
+    public String MENU_OPTIONS = "Select Choice:\n1. Book List\n2.Return Book\n3.Movie List\n5.Quit\n";
     public String QUIT_MESSAGE = "Thank you\n";
     public String PROMPT_USER_FOR_CHECKOUT_BOOK = "Would you like to checkout a book?(y/n)\n";
     public String SUCCESSFUL_BOOK_CHECKOUT = "Thank you! Enjoy the Book.\n";

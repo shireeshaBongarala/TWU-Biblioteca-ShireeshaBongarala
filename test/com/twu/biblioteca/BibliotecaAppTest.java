@@ -33,7 +33,7 @@ public class BibliotecaAppTest {
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
-        when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 4);
+        when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 5);
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock, checkOutMock, moviesMock);
@@ -49,7 +49,7 @@ public class BibliotecaAppTest {
         Books expectedBooks = new Books(library.getAvailableBookList());
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(4);
+                .thenReturn(5);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, expectedBooks , returnItemMock, checkOutMock,moviesMock);
@@ -65,7 +65,7 @@ public class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock, checkOutMock,moviesMock);
         when(inputHandlerMock.readInteger())
-                .thenReturn(8,4);
+                .thenReturn(8,5);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(ERROR_MESSAGE);
@@ -77,7 +77,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(2,4);
+                .thenReturn(2,5);
                bibliotecaApp.start();
 
         verify(returnItemMock).returnBook();
@@ -89,7 +89,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(1,4);
+                .thenReturn(1,5);
         when(checkOutMock.isInterestedToCheckOut())
                 .thenReturn(true);
         bibliotecaApp.start();
@@ -105,7 +105,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutMock,movies);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3,4);
+                .thenReturn(3,5);
         bibliotecaApp.start();
 
         verify(outputHandlerMock).display(movies);
@@ -120,7 +120,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutMock,movies);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3,4);
+                .thenReturn(3,5);
         bibliotecaApp.start();
 
         verify(outputHandlerMock,times(5)).display(textCaptor.capture());
@@ -133,7 +133,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnItemMock, checkOutMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3,4);
+                .thenReturn(3,5);
         when(checkOutMock.isInterestedToCheckOut())
                 .thenReturn(true);
         bibliotecaApp.start();

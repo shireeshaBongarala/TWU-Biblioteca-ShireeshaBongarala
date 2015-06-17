@@ -18,6 +18,7 @@ public class ReturnItem {
     }
 
     public void returnBook() {
+        inputHandler.readLine();
         String bookName = inputHandler.readLine();
         if (library.additionToAvailableBookListIsSuccessful(bookName)) {
             outputHandler.display(SUCCESSFUL_BOOK_RETURN);
@@ -28,6 +29,7 @@ public class ReturnItem {
 
 
     public void returnMovie() {
+        inputHandler.readLine();
         String movieName = inputHandler.readLine();
         if (library.additionToAvailableMovieListIsSuccessful(movieName)) {
             outputHandler.display(SUCCESSFUL_MOVIE_RETURN);

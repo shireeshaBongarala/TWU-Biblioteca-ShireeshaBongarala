@@ -24,7 +24,7 @@ public class ReturnItemTest {
     @Test
     public void shouldNotAddABookIfItIsNotValidBookToBeReturned() {
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nC++".getBytes()));
         ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
         returnItem.returnBook();
@@ -36,7 +36,7 @@ public class ReturnItemTest {
     @Test
     public void shouldDisplaySuccessfulReturnMessageWhenItIsAValidBook(){
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("Let Us C".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nLet Us C".getBytes()));
         ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
         returnItem.returnBook();
@@ -46,7 +46,7 @@ public class ReturnItemTest {
     @Test
     public void shouldNotAddAMovieIfItIsNotValidMovieToBeReturned() {
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("IronMan".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nIronMan".getBytes()));
         ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
         returnItem.returnMovie();
@@ -57,7 +57,7 @@ public class ReturnItemTest {
     @Test
     public void shouldDisplaySuccessfulReturnMessageWhenItIsAValidMovie(){
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("DarkKnight".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nDarkKnight".getBytes()));
         ReturnItem returnItem = new ReturnItem(outputHandlerMock,inputHandler,library);
 
         returnItem.returnMovie();
