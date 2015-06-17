@@ -11,6 +11,7 @@ public class BibliotecaApp {
     CheckOutItem checkout;
     Library library;
     Movies movies;
+    Authentication authentication = new Authentication();
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
@@ -76,6 +77,7 @@ public class BibliotecaApp {
             checkout.checkOutBook();
         }
     }
+
 
     private void promptForCheckingoutBooks() {
         outputHandler.display(books);
