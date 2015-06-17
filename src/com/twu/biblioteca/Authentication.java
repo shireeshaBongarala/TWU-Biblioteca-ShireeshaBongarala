@@ -11,6 +11,9 @@ public class Authentication {
         libraryIdPasswordMap = new HashMap<String, String>();
         libraryIdPasswordMap.put("123-4567","password123");
 
+        if(!libraryIdPasswordMap.containsKey(libraryId))
+            return false;
+
         String passwordFromMap = libraryIdPasswordMap.get(libraryId);
         if(passwordFromMap.equals(password))
             return true;

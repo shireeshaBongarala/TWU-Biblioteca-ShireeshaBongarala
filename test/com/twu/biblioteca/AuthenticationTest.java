@@ -14,4 +14,12 @@ public class AuthenticationTest {
 
         assertThat(actualResult,is(true));
     }
+    @Test
+    public void shouldReturnFalseIfUserCredentialsAreInValid(){
+        Authentication authentication = new Authentication();
+
+        boolean actualResult = authentication.validate("122-4567","password123");
+
+        assertThat(actualResult, is(false));
+    }
 }
