@@ -40,7 +40,7 @@ public class LoginTest {
 
         login.getDetails();
 
-        verify(inputHandlerMock).readLine();
+        verify(inputHandlerMock,times(2)).readLine();
     }
 
     @Test
@@ -55,5 +55,15 @@ public class LoginTest {
         verify(outputHandlerMock,times(2)).display(textCaptor.capture());
         List<String> capturedText = textCaptor.getAllValues();
         assertEquals(ENTER_PASSWORD, capturedText.get(1));
+    }
+    @Test
+    public void shouldGetThePasswordFromTheUser() {
+        outputHandlerMock = mock(OutputHandler.class);
+        inputHandlerMock = mock(InputHandler.class);
+        Login login = new Login(outputHandlerMock, inputHandlerMock);
+
+        login.getDetails();
+
+        verify(inputHandlerMock,times(2)).readLine();
     }
 }

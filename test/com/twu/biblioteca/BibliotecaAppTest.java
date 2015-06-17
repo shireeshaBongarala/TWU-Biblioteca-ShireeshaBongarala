@@ -97,9 +97,9 @@ public class BibliotecaAppTest {
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,5);
-               bibliotecaApp.start();
         when(inputHandlerMock.readLine())
                 .thenReturn("123-4567","password123");
+        bibliotecaApp.start();
 
         verify(returnItemMock).returnBook();
     }
