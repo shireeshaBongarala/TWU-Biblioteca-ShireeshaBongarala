@@ -1,13 +1,14 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
-import java.io.ByteArrayInputStream;
+import java.util.List;
 
 import static com.twu.biblioteca.Messages.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class LoginTest {
     @Mock
@@ -18,20 +19,41 @@ public class LoginTest {
     @Test
     public void shouldPromptUserToInputLibraryId() {
         outputHandlerMock = mock(OutputHandler.class);
-        Login login = new Login(outputHandlerMock,inputHandlerMock);
+        inputHandlerMock = mock(InputHandler.class);
+        Login login = new Login(outputHandlerMock, inputHandlerMock);
+        ArgumentCaptor<String> textCaptor = ArgumentCaptor.forClass(String.class);
 
+        when(inputHandlerMock.readLine())
+                .thenReturn("C");
         login.getDetails();
 
-        verify(outputHandlerMock).display(ENTER_LIBRARY_ID);
+        verify(outputHandlerMock,times(2)).display(textCaptor.capture());
+        List<String> capturedText = textCaptor.getAllValues();
+        assertEquals(ENTER_LIBRARY_ID, capturedText.get(0));
     }
+
     @Test
     public void shouldGetTheLibraryIDFromTheUser() {
         outputHandlerMock = mock(OutputHandler.class);
         inputHandlerMock = mock(InputHandler.class);
-        Login login = new Login(outputHandlerMock,inputHandlerMock);
+        Login login = new Login(outputHandlerMock, inputHandlerMock);
 
         login.getDetails();
 
-      verify(inputHandlerMock).readLine();
+        verify(inputHandlerMock).readLine();
+    }
+
+    @Test
+    public void shouldPromptUserToInputPassword() {
+        outputHandlerMock = mock(OutputHandler.class);
+        inputHandlerMock = mock(InputHandler.class);
+        Login login = new Login(outputHandlerMock, inputHandlerMock);
+        ArgumentCaptor<String> textCaptor = ArgumentCaptor.forClass(String.class);
+
+        login.getDetails();
+
+        verify(outputHandlerMock,times(2)).display(textCaptor.capture());
+        List<String> capturedText = textCaptor.getAllValues();
+        assertEquals(ENTER_PASSWORD, capturedText.get(1));
     }
 }

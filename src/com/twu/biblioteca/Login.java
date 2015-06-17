@@ -11,8 +11,11 @@ public class Login {
         this.inputHandler = inputHandler;
     }
     public void getDetails() {
+        String libraryID = "";
         outputHandler.display(ENTER_LIBRARY_ID);
-       String LibraryID =  inputHandler.readLine();
+         libraryID =  inputHandler.readLine();
+        outputHandler.display(ENTER_PASSWORD);
+
 
     }
 }
