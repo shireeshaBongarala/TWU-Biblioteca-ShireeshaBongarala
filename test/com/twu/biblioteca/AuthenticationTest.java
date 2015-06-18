@@ -64,7 +64,7 @@ public class AuthenticationTest {
     public void shouldDisplayUserInformationFromLibraryId(){
         Authentication authentication = new Authentication();
 
-        User user = authentication.getDetails("123-4567");
+        User user = authentication.getUser("123-4567");
 
         MatcherAssert.assertThat(user.toString(), is("Name : shireesha Email : shiree@gmail.com Phone : 1233456 LibraryID :123-4567"));
     }

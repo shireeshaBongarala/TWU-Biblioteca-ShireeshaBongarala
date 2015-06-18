@@ -96,7 +96,7 @@ public class MainMenuForLibraryTest {
 
         mainMenuForLibrary.start();
 
-        verify(login).performAction();
+        verify(login).performAction(user);
     }
     @Test
     public void shouldDisplayQuitMessageWhenUserPressesOptionFour() {

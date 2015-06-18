@@ -47,7 +47,7 @@ public class Authentication {
     public int getUserState(){
         return userState;
     }
-    public User getDetails(String libraryId) {
+    public User getUser(String libraryId) {
         for(User user : userArrayList){
             if(user.getLibraryID().equals(libraryId)){
                 return user;

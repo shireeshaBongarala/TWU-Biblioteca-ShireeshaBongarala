@@ -15,7 +15,7 @@ public class Login {
         this.authentication = authentication;
     }
 
-    public void performAction() {
+    public User performAction(User user) {
         inputHandler.readLine();
         outputHandler.display(ENTER_LIBRARY_ID);
         libraryID = inputHandler.readLine();
@@ -23,7 +23,9 @@ public class Login {
         password = inputHandler.readLine();
         if(authentication.validate(libraryID,password)){
             loginSucessful = 1;
+            return authentication.getUser(libraryID);
         }
+        return user;
     }
 
 

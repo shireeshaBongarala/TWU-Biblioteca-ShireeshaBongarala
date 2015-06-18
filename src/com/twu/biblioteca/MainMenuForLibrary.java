@@ -40,7 +40,7 @@ public class MainMenuForLibrary {
                     movieListOption.performAction(movies);
                     break;
                 case 3:
-                    login.performAction();
+                    login.performAction(user);
                     break;
                 case 4:
                     outputHandler.display(QUIT_MESSAGE);

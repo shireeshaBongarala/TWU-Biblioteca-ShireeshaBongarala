@@ -19,6 +19,8 @@ public class LoginTest {
     InputHandler inputHandlerMock;
     @Mock
     Authentication authentication;
+    @Mock
+    User user;
 
     @Before
         public void setUp() {
@@ -34,7 +36,7 @@ public class LoginTest {
 
         when(inputHandlerMock.readLine())
                 .thenReturn("C");
-        login.performAction();
+        login.performAction(user);
 
         verify(outputHandlerMock, times(2)).display(textCaptor.capture());
         List<String> capturedText = textCaptor.getAllValues();
@@ -44,7 +46,7 @@ public class LoginTest {
 
     @Test
     public void shouldGetTheLibraryIDFromTheUser() {
-        login.performAction();
+        login.performAction(user);
 
         verify(inputHandlerMock, times(3)).readLine();
     }
@@ -53,7 +55,7 @@ public class LoginTest {
     public void shouldPromptUserToInputPassword() {
         ArgumentCaptor<String> textCaptor = ArgumentCaptor.forClass(String.class);
 
-        login.performAction();
+        login.performAction(user);
 
         verify(outputHandlerMock, times(2)).display(textCaptor.capture());
         List<String> capturedText = textCaptor.getAllValues();
@@ -63,7 +65,7 @@ public class LoginTest {
     @Test
     public void shouldGetThePasswordFromTheUser() {
 
-        login.performAction();
+        login.performAction(user);
 
         verify(inputHandlerMock, times(3)).readLine();
     }
@@ -72,7 +74,7 @@ public class LoginTest {
     public void shouldCallAuthenticateValidationWhenRequiredInputsAreAvailable() {
         when(inputHandlerMock.readLine())
                 .thenReturn("\n","123-4567","password123");
-        login.performAction();
+        login.performAction(user);
         verify(authentication).validate("123-4567", "password123");
     }
 }
