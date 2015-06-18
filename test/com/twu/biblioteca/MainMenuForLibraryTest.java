@@ -27,6 +27,10 @@ public class MainMenuForLibraryTest {
     BookListOption bookListOption;
     @Mock
     MovieListOption movieListOptionMock;
+    @Mock
+    Authentication authentication;
+    @Mock
+    Login login;
     private Books books;
     private Movies movies;
 
@@ -37,6 +41,7 @@ public class MainMenuForLibraryTest {
         checkOutItem = mock(CheckOutItem.class);
         bookListOption = mock(BookListOption.class);
         movieListOptionMock = mock(MovieListOption.class);
+        login = mock(Login.class);
         Library library = new Library();
         books = new Books(library.getAvailableBookList());
         movies = new Movies(library.getAvailableMovieList());
@@ -46,7 +51,8 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayMainMenuOptions() {
 
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login);
 
         mainMenuForLibrary.start();
 
@@ -55,24 +61,38 @@ public class MainMenuForLibraryTest {
 
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1);
 
         mainMenuForLibrary.start();
         verify(bookListOption).performAction(books);
-
     }
+
     @Test
     public void shouldDisplayMovieListWhenUserPressesTwo() {
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2);
 
         mainMenuForLibrary.start();
         verify(movieListOptionMock).performAction(movies);
+    }
 
+    @Test
+    public void shouldCallLoginWhenUserPressesOptionThree() {
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3);
+
+        mainMenuForLibrary.start();
+
+        verify(login).performAction();
     }
 }

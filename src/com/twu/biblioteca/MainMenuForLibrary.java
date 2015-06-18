@@ -8,9 +8,10 @@ public class MainMenuForLibrary {
     Movies movies;
     BookListOption bookListOption;
     MovieListOption movieListOption;
+    Login login;
 
     MainMenuForLibrary(OutputHandler outputHandler, InputHandler inputHandler, CheckOutItem checkOutItem,
-                       Books books, BookListOption bookListOption,MovieListOption movieListOption,Movies movies) {
+                       Books books, BookListOption bookListOption,MovieListOption movieListOption,Movies movies,Login login) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.checkOutItem = checkOutItem;
@@ -18,6 +19,7 @@ public class MainMenuForLibrary {
         this.movies = movies;
         this.bookListOption = bookListOption;
         this.movieListOption = movieListOption;
+        this.login = login;
     }
 
     public void start() {
@@ -30,6 +32,8 @@ public class MainMenuForLibrary {
                 break;
             case 2:
                 movieListOption.performAction(movies);
+                break;
+            case 3:login.performAction();
                 break;
         }
     }

@@ -14,7 +14,7 @@ public class Login {
         this.authentication = authentication;
     }
 
-    public void getDetails() {
+    public void performAction() {
         outputHandler.display(ENTER_LIBRARY_ID);
         libraryID = inputHandler.readLine();
         outputHandler.display(ENTER_PASSWORD);
