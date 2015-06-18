@@ -11,6 +11,7 @@ public class BibliotecaApp {
     CheckOutItem checkout;
     Library library;
     Movies movies;
+    BookListOption bookListOption;
     Authentication authentication = new Authentication();
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
@@ -21,11 +22,11 @@ public class BibliotecaApp {
         this.checkout = checkOutItem;
         this.movies = movies;
         this.books = books;
+        bookListOption = new BookListOption(outputHandler,checkout);
     }
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        BookListOption bookListOption = new BookListOption(outputHandler,checkout);
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books,bookListOption);
         //mainMenuForLibrary.start();
         MainMenuForUsersInLibrary();
@@ -38,7 +39,7 @@ public class BibliotecaApp {
 
             switch (choice) {
                 case 1:
-                    bookListOption();
+                    bookListOption.performAction(books);
                     break;
                 case 2:
                     returnBookOption();
