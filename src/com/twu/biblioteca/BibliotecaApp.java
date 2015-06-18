@@ -83,21 +83,6 @@ public class BibliotecaApp {
             returnItem.returnBook();
         }
     }
-
-    private void bookListOption() {
-        promptForCheckingoutBooks();
-        if (checkout.isInterestedToCheckOut()) {
-            outputHandler.display(ENTER_BOOK_NAME);
-            checkout.checkOutBook();
-        }
-    }
-
-
-    private void promptForCheckingoutBooks() {
-        outputHandler.display(books);
-        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_BOOK);
-    }
-
     private void promptForCheckingoutMovies() {
         outputHandler.display(movies);
         outputHandler.display(PROMPT_USER_FOR_CHECKOUT_MOVIE);
