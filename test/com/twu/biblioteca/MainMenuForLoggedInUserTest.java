@@ -78,4 +78,16 @@ public class MainMenuForLoggedInUserTest {
         mainMenuForLoggedInUser.start();
         verify(movieListOptionMock).performAction(movies);
     }
+    @Test
+    public void shouldCallCheckoutBookWhenUserPressesOptionThree(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+
+        mainMenuForLoggedInUser.start();
+        verify(checkOutItem).checkOutBook();
+
+    }
 }
