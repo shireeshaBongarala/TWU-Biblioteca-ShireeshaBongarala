@@ -103,7 +103,20 @@ public class MainMenuForLoggedInUserTest {
         verify(returnItem).returnBook();
     }
     @Test
-    public void shouldDisplayQuitMessageWhenUserPressesOptionFive(){
+    public void shouldDisplayQuitMessageWhenUserPressesOptionSeven(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(7);
+
+        mainMenuForLoggedInUser.start();
+
+        verify(outputHandlerMock).display(QUIT_MESSAGE);
+
+    }
+    @Test
+    public void shouldCallCheckoutMovieWhenUserPressesOptionFive(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
@@ -111,8 +124,7 @@ public class MainMenuForLoggedInUserTest {
                 .thenReturn(5);
 
         mainMenuForLoggedInUser.start();
-
-        verify(outputHandlerMock).display(QUIT_MESSAGE);
+        verify(checkOutItem).checkOutMovie();
 
     }
 }
