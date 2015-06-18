@@ -102,4 +102,17 @@ public class MainMenuForLoggedInUserTest {
         mainMenuForLoggedInUser.start();
         verify(returnItem).returnBook();
     }
+    @Test
+    public void shouldDisplayQuitMessageWhenUserPressesOptionFive(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(5);
+
+        mainMenuForLoggedInUser.start();
+
+        verify(outputHandlerMock).display(QUIT_MESSAGE);
+
+    }
 }
