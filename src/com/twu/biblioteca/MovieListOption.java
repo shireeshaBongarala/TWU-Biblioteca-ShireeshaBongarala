@@ -12,10 +12,10 @@ public class MovieListOption {
     }
     public void performAction(Movies movies) {
         outputHandler.display(movies);
-        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_MOVIE);
-        if (checkOutItem.isInterestedToCheckOut()) {
-            outputHandler.display(ENTER_MOVIE_NAME);
-            checkOutItem.checkOutMovie();
-        }
+//        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_MOVIE);
+//        if (checkOutItem.isInterestedToCheckOut()) {
+//            outputHandler.display(ENTER_MOVIE_NAME);
+//            checkOutItem.checkOutMovie();
+//        }
     }
 }

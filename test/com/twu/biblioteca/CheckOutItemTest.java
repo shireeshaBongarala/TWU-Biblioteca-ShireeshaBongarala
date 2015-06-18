@@ -61,7 +61,7 @@ public class CheckOutItemTest {
     @Test
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nC++".getBytes()));
         CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
 
         checkOutItem.checkOutBook();
@@ -72,7 +72,7 @@ public class CheckOutItemTest {
     @Test
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredMovieIsAvailable(){
         Library library = new Library();
-        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("IronMan".getBytes()));
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nIronMan".getBytes()));
         CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
 
         checkOutItem.checkOutMovie();
@@ -85,7 +85,7 @@ public class CheckOutItemTest {
 
 
         when(inputHandlerMock.readLine())
-                .thenReturn("IronLady");
+                .thenReturn("\nIronLady");
         checkOutItem.checkOutMovie();
 
         verify(outputHandlerMock).display(THAT_MOVIE_IS_NOT_AVAILABLE);

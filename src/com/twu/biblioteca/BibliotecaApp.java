@@ -42,47 +42,5 @@ public class BibliotecaApp {
             if(authentication.getUserState() == 1)
                         mainMenuForLoggedInUser.start();
 
-
-    //   MainMenuForUsersInLibrary();
-    }
-
-    private void MainMenuForUsersInLibrary() {
-        do {
-            outputHandler.display(MENU_OPTIONS);
-            choice = inputHandler.readInteger();
-
-            switch (choice) {
-                case 1:
-                    bookListOption.performAction(books);
-                    break;
-                case 2:
-                    returnBookOption();
-                    break;
-                case 3:
-                    movieListOption.performAction(movies);
-                    break;
-                case 4:
-                    returnMovieOption();
-                    break;
-                case 5:
-                    outputHandler.display(QUIT_MESSAGE);
-                    break;
-                default:
-                    outputHandler.display(ERROR_MESSAGE);
-            }
-
-        } while (choice != 5);
-    }
-
-    private void returnMovieOption() {
-        outputHandler.display(ENTER_MOVIE_NAME);
-        returnItem.returnMovie();
-    }
-
-
-    private void returnBookOption() {
-        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-        returnItem.returnBook();
-
     }
 }

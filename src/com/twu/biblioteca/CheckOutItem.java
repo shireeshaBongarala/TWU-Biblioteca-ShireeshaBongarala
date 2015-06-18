@@ -22,6 +22,7 @@ OutputHandler outputHandler;
     }
 
     public void checkOutBook() {
+            inputHandler.readLine();
         String bookName = inputHandler.readLine();
         if (library.additionToCheckedOutBookListIsSuccessful(bookName)) {
             outputHandler.display(SUCCESSFUL_BOOK_CHECKOUT);
@@ -30,6 +31,7 @@ OutputHandler outputHandler;
     }
 
     public void checkOutMovie() {
+        inputHandler.readLine();
         String movieName = inputHandler.readLine();
         if(library.additionToCheckedOutMovieListIsSuccessful(movieName)) {
             outputHandler.display(Messages.SUCCESSFUL_MOVIE_CHECKOUT);

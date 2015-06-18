@@ -13,11 +13,11 @@ public class BookListOption {
     }
     public void performAction(Books books) {
         outputHandler.display(books);
-        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_BOOK);
-        if (checkOutItem.isInterestedToCheckOut()) {
-            outputHandler.display(ENTER_BOOK_NAME);
-            checkOutItem.checkOutBook();
-        }
-
+        //for biblioteca to work remove coments
+//        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_BOOK);
+//        if (checkOutItem.isInterestedToCheckOut()) {
+//            outputHandler.display(ENTER_BOOK_NAME);
+//            checkOutItem.checkOutBook();
+//        }
     }
 }
