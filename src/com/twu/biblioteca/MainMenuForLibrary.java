@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import static com.twu.biblioteca.Messages.*;
+
 public class MainMenuForLibrary {
     InputHandler inputHandler;
     OutputHandler outputHandler;
@@ -11,7 +13,7 @@ public class MainMenuForLibrary {
     Login login;
 
     MainMenuForLibrary(OutputHandler outputHandler, InputHandler inputHandler, CheckOutItem checkOutItem,
-                       Books books, BookListOption bookListOption,MovieListOption movieListOption,Movies movies,Login login) {
+                       Books books, BookListOption bookListOption, MovieListOption movieListOption, Movies movies, Login login) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.checkOutItem = checkOutItem;
@@ -24,7 +26,7 @@ public class MainMenuForLibrary {
 
     public void start() {
         int choice;
-        outputHandler.display(Messages.MAIN_MENU_OPTIONS);
+        outputHandler.display(MAIN_MENU_OPTIONS);
         choice = inputHandler.readInteger();
         switch (choice) {
             case 1:
@@ -33,7 +35,11 @@ public class MainMenuForLibrary {
             case 2:
                 movieListOption.performAction(movies);
                 break;
-            case 3:login.performAction();
+            case 3:
+                login.performAction();
+                break;
+            case 4:
+                outputHandler.display(QUIT_MESSAGE);
                 break;
         }
     }

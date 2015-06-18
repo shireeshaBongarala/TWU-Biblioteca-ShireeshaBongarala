@@ -95,4 +95,16 @@ public class MainMenuForLibraryTest {
 
         verify(login).performAction();
     }
+    @Test
+    public void shouldDisplayQuitMessageWhenUserPressesOptionFour() {
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(4);
+
+        mainMenuForLibrary.start();
+
+        verify(outputHandlerMock).display(QUIT_MESSAGE);
+    }
 }

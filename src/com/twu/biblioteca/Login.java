@@ -20,6 +20,8 @@ public class Login {
         libraryID = inputHandler.readLine();
         outputHandler.display(ENTER_PASSWORD);
         password = inputHandler.readLine();
-        authentication.validate(libraryID,password);
+        if(authentication.validate(libraryID,password)){
+            System.out.println("Welcome user "+libraryID);
+        }
     }
 }
