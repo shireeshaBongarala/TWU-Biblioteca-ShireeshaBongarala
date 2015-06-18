@@ -49,7 +49,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(7);
+                .thenReturn(8);
         mainMenuForLoggedInUser.start();
 
         verify(outputHandlerMock, atLeast(1)).display(MAIN_MENU_FOR_LOGGEDIN_USER);
@@ -62,7 +62,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(1,7);
+                .thenReturn(1,8);
 
         mainMenuForLoggedInUser.start();
         verify(bookListOption,atLeast(1)).performAction(books);
@@ -74,7 +74,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(2,7);
+                .thenReturn(2,8);
 
         mainMenuForLoggedInUser.start();
         verify(movieListOptionMock).performAction(movies);
@@ -85,7 +85,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3,7);
+                .thenReturn(3,8);
 
         mainMenuForLoggedInUser.start();
         verify(checkOutItem).checkOutBook();
@@ -97,7 +97,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(4,7);
+                .thenReturn(4,8);
 
         mainMenuForLoggedInUser.start();
         verify(returnItem).returnBook();
@@ -108,7 +108,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(7);
+                .thenReturn(8);
 
         mainMenuForLoggedInUser.start();
 
@@ -121,7 +121,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(5,7);
+                .thenReturn(5,8);
 
         mainMenuForLoggedInUser.start();
         verify(checkOutItem).checkOutMovie();
@@ -133,7 +133,7 @@ public class MainMenuForLoggedInUserTest {
                 books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(6,7);
+                .thenReturn(6,8);
 
         mainMenuForLoggedInUser.start();
         verify(returnItem).returnMovie();

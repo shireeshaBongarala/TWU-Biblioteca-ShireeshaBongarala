@@ -42,10 +42,10 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
                     outputHandler.display(ENTER_MOVIE_NAME);
                     returnItem.returnMovie();
                     break;
-                case 7:
+                case 8:
                     outputHandler.display(QUIT_MESSAGE);
                     break;
             }
-        } while (choice != 7);
+        } while (choice != 8);
     }
 }
