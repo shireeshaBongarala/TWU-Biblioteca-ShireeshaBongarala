@@ -22,4 +22,13 @@ public class AuthenticationTest {
 
         assertThat(actualResult, is(false));
     }
+
+    @Test
+    public void shouldReturnTrueIfTheUserCredentialsAreValidForLibrarian(){
+        Authentication authentication = new Authentication();
+        
+        boolean actualResult = authentication.validate("000-0123","password123");
+
+        assertThat(actualResult,is(true));
+    }
 }
