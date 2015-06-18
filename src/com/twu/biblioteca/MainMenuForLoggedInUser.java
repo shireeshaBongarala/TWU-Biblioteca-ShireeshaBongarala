@@ -34,6 +34,9 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
             case 5:
                 checkOutItem.checkOutMovie();
                 break;
+            case 6:
+                returnItem.returnMovie();
+                break;
             case 7:
                 outputHandler.display(QUIT_MESSAGE);
                 break;

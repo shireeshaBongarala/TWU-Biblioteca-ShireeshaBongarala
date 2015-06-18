@@ -127,4 +127,15 @@ public class MainMenuForLoggedInUserTest {
         verify(checkOutItem).checkOutMovie();
 
     }
+    @Test
+    public void shouldCallReturnMovieWhenUserPressesOptionSix(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(6);
+
+        mainMenuForLoggedInUser.start();
+        verify(returnItem).returnMovie();
+    }
 }
