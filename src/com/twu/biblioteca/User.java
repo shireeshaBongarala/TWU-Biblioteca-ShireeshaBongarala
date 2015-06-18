@@ -22,6 +22,6 @@ public class User {
     }
     @Override
     public String toString() {
-        return "Name : " + name + " Email : " + email +  " Phone : " + phone + " LibraryID :" + libraryID;
+        return "Name : " + name + " Email : " + email +  " Phone : " + phone + " LibraryID :" + libraryID+"\n";
     }
 }

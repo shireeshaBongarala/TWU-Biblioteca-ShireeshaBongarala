@@ -140,4 +140,15 @@ public class MainMenuForLoggedInUserTest {
         mainMenuForLoggedInUser.start();
         verify(returnItem).returnMovie();
     }
+    @Test
+    public void shouldDisplayUserDetailsWhenUserPressesOptionSeven(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(7,8);
+
+        mainMenuForLoggedInUser.start();
+       verify(outputHandlerMock).display(BibliotecaApp.user);
+    }
 }
