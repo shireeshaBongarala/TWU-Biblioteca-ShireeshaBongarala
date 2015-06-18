@@ -47,7 +47,7 @@ public class BibliotecaApp {
                     returnBookOption();
                     break;
                 case 3:
-                    movieListOption();
+                   movieListOption.performAction(movies);
                     break;
                 case 4:
                     returnMovieOption();
@@ -67,13 +67,6 @@ public class BibliotecaApp {
         returnItem.returnMovie();
     }
 
-    private void movieListOption() {
-        promptForCheckingoutMovies();
-        if (checkout.isInterestedToCheckOut()) {
-            outputHandler.display(ENTER_MOVIE_NAME);
-            checkout.checkOutMovie();
-        }
-    }
 
     private void returnBookOption() {
         System.out.println("Enter library ID :");
@@ -84,9 +77,5 @@ public class BibliotecaApp {
             outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
             returnItem.returnBook();
         }
-    }
-    private void promptForCheckingoutMovies() {
-        outputHandler.display(movies);
-        outputHandler.display(PROMPT_USER_FOR_CHECKOUT_MOVIE);
     }
 }
