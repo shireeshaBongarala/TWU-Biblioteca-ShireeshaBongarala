@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
-    int choice;
     OutputHandler outputHandler;
     InputHandler inputHandler;
     Books books;
@@ -41,6 +40,5 @@ public class BibliotecaApp {
                          mainMenuForLibrary.start();
             if(authentication.getUserState() == 1)
                         mainMenuForLoggedInUser.start();
-
     }
 }

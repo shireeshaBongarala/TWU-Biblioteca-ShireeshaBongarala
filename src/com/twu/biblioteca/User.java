@@ -12,7 +12,9 @@ public class User {
         this.phone = phone;
         this.libraryID = libraryID;
     }
-
+    public String getLibraryID(){
+        return libraryID;
+    }
     @Override
     public String toString() {
         return "Name : " + name + " Email : " + email +  " Phone : " + phone + " LibraryID :" + libraryID;
