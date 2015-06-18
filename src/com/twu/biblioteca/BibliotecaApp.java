@@ -14,7 +14,7 @@ public class BibliotecaApp {
     MovieListOption movieListOption;
     Authentication authentication = new Authentication();
     Login login;
-    User user;
+   static User user;
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
@@ -40,7 +40,7 @@ public class BibliotecaApp {
 
         if (authentication.getUserState() == 0)
             mainMenuForLibrary.start();
-        if (authentication.getUserState() == 1)
+        if (user.getUserType() == 1)
             mainMenuForLoggedInUser.start();
     }
 }
