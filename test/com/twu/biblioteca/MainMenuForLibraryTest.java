@@ -31,6 +31,8 @@ public class MainMenuForLibraryTest {
     Authentication authentication;
     @Mock
     Login login;
+    @Mock
+    User user;
     private Books books;
     private Movies movies;
 
@@ -51,7 +53,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayMainMenuOptions() {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,user);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1,4);
@@ -63,7 +65,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,user);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1,4);
@@ -75,7 +77,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayMovieListWhenUserPressesTwo() {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,user);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,4);
@@ -87,7 +89,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldCallLoginWhenUserPressesOptionThree() {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,user);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(3,4);
@@ -99,7 +101,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayQuitMessageWhenUserPressesOptionFour() {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,user);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(4);

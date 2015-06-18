@@ -4,11 +4,12 @@ import static com.twu.biblioteca.Messages.*;
 
 public class MainMenuForLoggedInUser extends MainMenuForLibrary {
     ReturnItem returnItem;
+    User user;
 
     MainMenuForLoggedInUser(OutputHandler outputHandler, InputHandler inputHandler,
                             CheckOutItem checkOutItem, Books books, BookListOption bookListOption,
-                            MovieListOption movieListOption, Movies movies, Login login, ReturnItem returnItem) {
-        super(outputHandler, inputHandler, checkOutItem, books, bookListOption, movieListOption, movies, login);
+                            MovieListOption movieListOption, Movies movies, Login login,User user, ReturnItem returnItem) {
+        super(outputHandler, inputHandler, checkOutItem, books, bookListOption, movieListOption, movies, login,user);
         this.returnItem = returnItem;
     }
 

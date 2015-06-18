@@ -26,6 +26,8 @@ public class MainMenuForLoggedInUserTest {
     ReturnItem returnItem;
     @Mock
     Login login;
+    @Mock
+    User user;
     private Books books;
     private Movies movies;
 
@@ -46,7 +48,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldDisplayAllOptionsForUser() {
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(8);
@@ -59,7 +61,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1,8);
@@ -71,7 +73,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldDisplayMovieListWhenUserPressesTwo() {
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,8);
@@ -82,7 +84,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldCallCheckoutBookWhenUserPressesOptionThree(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(3,8);
@@ -94,7 +96,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldCallReturnBookWhenUserPressesOptionFour(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(4,8);
@@ -105,7 +107,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldDisplayQuitMessageWhenUserPressesOptionSeven(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(8);
@@ -118,7 +120,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldCallCheckoutMovieWhenUserPressesOptionFive(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(5,8);
@@ -130,7 +132,7 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldCallReturnMovieWhenUserPressesOptionSix(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+                books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(6,8);

@@ -11,9 +11,10 @@ public class MainMenuForLibrary {
     BookListOption bookListOption;
     MovieListOption movieListOption;
     Login login;
+    User user;
 
     MainMenuForLibrary(OutputHandler outputHandler, InputHandler inputHandler, CheckOutItem checkOutItem,
-                       Books books, BookListOption bookListOption, MovieListOption movieListOption, Movies movies, Login login) {
+                       Books books, BookListOption bookListOption, MovieListOption movieListOption, Movies movies, Login login,User user) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.checkOutItem = checkOutItem;
@@ -22,6 +23,7 @@ public class MainMenuForLibrary {
         this.bookListOption = bookListOption;
         this.movieListOption = movieListOption;
         this.login = login;
+        this.user = user;
     }
 
     public void start() {
