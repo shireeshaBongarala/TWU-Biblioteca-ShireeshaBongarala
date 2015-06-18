@@ -41,4 +41,13 @@ public class AuthenticationTest {
 
         assertThat(actualResult, is(1));
     }
+    @Test
+    public void shouldReturnTwoIfUserIsALibrarianOfLibrary(){
+        Authentication authentication = new Authentication();
+
+        authentication.validate("000-0123","password123");
+        int actualResult = authentication.getUserState();
+
+        assertThat(actualResult, is(2));
+    }
 }
