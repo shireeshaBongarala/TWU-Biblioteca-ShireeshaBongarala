@@ -12,6 +12,7 @@ public class BibliotecaApp {
     Library library;
     Movies movies;
     BookListOption bookListOption;
+    MovieListOption movieListOption;
     Authentication authentication = new Authentication();
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
@@ -23,11 +24,12 @@ public class BibliotecaApp {
         this.movies = movies;
         this.books = books;
         bookListOption = new BookListOption(outputHandler,checkout);
+        movieListOption = new MovieListOption(outputHandler,checkOutItem);
     }
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books,bookListOption);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books,bookListOption,movieListOption,movies);
         //mainMenuForLibrary.start();
         MainMenuForUsersInLibrary();
     }

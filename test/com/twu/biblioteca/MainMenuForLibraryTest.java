@@ -25,7 +25,10 @@ public class MainMenuForLibraryTest {
     CheckOutItem checkOutItem;
     @Mock
     BookListOption bookListOption;
+    @Mock
+    MovieListOption movieListOptionMock;
     private Books books;
+    private Movies movies;
 
     @Before
     public void setUp() {
@@ -33,15 +36,17 @@ public class MainMenuForLibraryTest {
         inputHandlerMock = mock(InputHandler.class);
         checkOutItem = mock(CheckOutItem.class);
         bookListOption = mock(BookListOption.class);
+        movieListOptionMock = mock(MovieListOption.class);
         Library library = new Library();
         books = new Books(library.getAvailableBookList());
+        movies = new Movies(library.getAvailableMovieList());
 
     }
 
     @Test
     public void shouldDisplayMainMenuOptions() {
 
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
 
         mainMenuForLibrary.start();
 
@@ -50,13 +55,24 @@ public class MainMenuForLibraryTest {
 
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1);
 
         mainMenuForLibrary.start();
         verify(bookListOption).performAction(books);
+
+    }
+    @Test
+    public void shouldDisplayMovieListWhenUserPressesTwo() {
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption,movieListOptionMock,movies);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(2);
+
+        mainMenuForLibrary.start();
+        verify(movieListOptionMock).performAction(movies);
 
     }
 }
