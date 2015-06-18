@@ -7,6 +7,7 @@ public class Login {
     InputHandler inputHandler;
     String libraryID, password;
     Authentication authentication;
+    public int loginSucessful = 0;
 
     Login(OutputHandler outputHandler, InputHandler inputHandler,Authentication authentication) {
         this.outputHandler = outputHandler;
@@ -22,6 +23,7 @@ public class Login {
         password = inputHandler.readLine();
         if(authentication.validate(libraryID,password)){
             System.out.println("Welcome user "+libraryID);
+            loginSucessful = 1;
         }
     }
 }
