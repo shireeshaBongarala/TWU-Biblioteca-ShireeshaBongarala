@@ -50,10 +50,11 @@ public class MainMenuForLibraryTest {
 
     @Test
     public void shouldDisplayMainMenuOptions() {
-
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
                 books, bookListOption, movieListOptionMock, movies, login);
 
+        when(inputHandlerMock.readInteger())
+                .thenReturn(1,4);
         mainMenuForLibrary.start();
 
         verify(outputHandlerMock, atLeast(1)).display(MAIN_MENU_OPTIONS);
@@ -65,10 +66,10 @@ public class MainMenuForLibraryTest {
                 books, bookListOption, movieListOptionMock, movies, login);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(1);
+                .thenReturn(1,4);
 
         mainMenuForLibrary.start();
-        verify(bookListOption).performAction(books);
+        verify(bookListOption,atLeast(1)).performAction(books);
     }
 
     @Test
@@ -77,7 +78,7 @@ public class MainMenuForLibraryTest {
                 books, bookListOption, movieListOptionMock, movies, login);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(2);
+                .thenReturn(2,4);
 
         mainMenuForLibrary.start();
         verify(movieListOptionMock).performAction(movies);
@@ -89,7 +90,7 @@ public class MainMenuForLibraryTest {
                 books, bookListOption, movieListOptionMock, movies, login);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3);
+                .thenReturn(3,4);
 
         mainMenuForLibrary.start();
 

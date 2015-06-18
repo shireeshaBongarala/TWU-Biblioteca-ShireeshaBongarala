@@ -25,15 +25,16 @@ public class BibliotecaApp {
         this.movies = movies;
         this.books = books;
         authentication = new Authentication();
-        bookListOption = new BookListOption(outputHandler,checkout);
-        movieListOption = new MovieListOption(outputHandler,checkOutItem);
-        login= new Login(outputHandler,inputHandler,authentication);
+        bookListOption = new BookListOption(outputHandler, checkout);
+        movieListOption = new MovieListOption(outputHandler, checkOutItem);
+        login = new Login(outputHandler, inputHandler, authentication);
     }
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books,bookListOption,movieListOption,movies,login);
-//       mainMenuForLibrary.start();
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler, inputHandler,
+                checkout, books, bookListOption, movieListOption, movies, login);
+//      mainMenuForLibrary.start();
         MainMenuForUsersInLibrary();
     }
 
@@ -50,7 +51,7 @@ public class BibliotecaApp {
                     returnBookOption();
                     break;
                 case 3:
-                   movieListOption.performAction(movies);
+                    movieListOption.performAction(movies);
                     break;
                 case 4:
                     returnMovieOption();
@@ -72,13 +73,8 @@ public class BibliotecaApp {
 
 
     private void returnBookOption() {
-        System.out.println("Enter library ID :");
-        String libraryId = inputHandler.readLine();
-        System.out.println("Enter password :");
-        String password = inputHandler.readLine();
-        if (authentication.validate(libraryId, password)) {
-            outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
-            returnItem.returnBook();
-        }
+        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+        returnItem.returnBook();
+
     }
 }

@@ -26,21 +26,24 @@ public class MainMenuForLibrary {
 
     public void start() {
         int choice;
-        outputHandler.display(MAIN_MENU_OPTIONS);
-        choice = inputHandler.readInteger();
-        switch (choice) {
-            case 1:
-                bookListOption.performAction(books);
-                break;
-            case 2:
-                movieListOption.performAction(movies);
-                break;
-            case 3:
-                login.performAction();
-                break;
-            case 4:
-                outputHandler.display(QUIT_MESSAGE);
-                break;
-        }
+        do {
+            outputHandler.display(MAIN_MENU_OPTIONS);
+            choice = inputHandler.readInteger();
+
+            switch (choice) {
+                case 1:
+                    bookListOption.performAction(books);
+                    break;
+                case 2:
+                    movieListOption.performAction(movies);
+                    break;
+                case 3:
+                    login.performAction();
+                    break;
+                case 4:
+                    outputHandler.display(QUIT_MESSAGE);
+                    break;
+            }
+        } while (choice != 4);
     }
 }
