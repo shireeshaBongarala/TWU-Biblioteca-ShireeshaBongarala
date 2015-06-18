@@ -22,7 +22,7 @@ public class BookListOptionTest {
         BookListOption bookListOption = new BookListOption(outputHandlerMock, checkOutItemMock);
         Books books = new Books(new Library().getAvailableBookList());
 
-        bookListOption.displayBookList(books);
+        bookListOption.performAction(books);
 
         verify(outputHandlerMock).display(books);
 

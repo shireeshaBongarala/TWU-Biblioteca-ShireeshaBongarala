@@ -2,10 +2,14 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
 
+import java.util.List;
+
 import static com.twu.biblioteca.Messages.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
@@ -19,6 +23,8 @@ public class MainMenuForLibraryTest {
     InputHandler inputHandlerMock;
     @Mock
     CheckOutItem checkOutItem;
+    @Mock
+    BookListOption bookListOption;
     private Books books;
 
     @Before
@@ -26,6 +32,7 @@ public class MainMenuForLibraryTest {
         outputHandlerMock = mock(OutputHandler.class);
         inputHandlerMock = mock(InputHandler.class);
         checkOutItem = mock(CheckOutItem.class);
+        bookListOption = mock(BookListOption.class);
         Library library = new Library();
         books = new Books(library.getAvailableBookList());
 
@@ -34,7 +41,7 @@ public class MainMenuForLibraryTest {
     @Test
     public void shouldDisplayMainMenuOptions() {
 
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption);
 
         mainMenuForLibrary.start();
 
@@ -43,14 +50,13 @@ public class MainMenuForLibraryTest {
 
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem, books,bookListOption);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1);
-        when(checkOutItem.isInterestedToCheckOut())
-                .thenReturn(true);
-        mainMenuForLibrary.start();
 
-        verify(outputHandlerMock, atLeast(1)).display(books);
+        mainMenuForLibrary.start();
+        verify(bookListOption).performAction(books);
+
     }
 }

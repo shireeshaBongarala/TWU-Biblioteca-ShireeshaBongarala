@@ -11,7 +11,7 @@ public class BookListOption {
         this.checkOutItem = checkOutItem;
         this.outputHandler = outputHandler;
     }
-    public void displayBookList(Books books) {
+    public void performAction(Books books) {
         outputHandler.display(books);
         outputHandler.display(PROMPT_USER_FOR_CHECKOUT_BOOK);
         if (checkOutItem.isInterestedToCheckOut()) {

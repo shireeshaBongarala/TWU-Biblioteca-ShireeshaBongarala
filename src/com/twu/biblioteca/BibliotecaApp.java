@@ -25,7 +25,8 @@ public class BibliotecaApp {
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books);
+        BookListOption bookListOption = new BookListOption(outputHandler,checkout);
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler,inputHandler,checkout,books,bookListOption);
         //mainMenuForLibrary.start();
         MainMenuForUsersInLibrary();
     }
