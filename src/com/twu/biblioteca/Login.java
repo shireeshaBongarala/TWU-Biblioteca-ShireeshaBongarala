@@ -6,10 +6,12 @@ public class Login {
     OutputHandler outputHandler;
     InputHandler inputHandler;
     String libraryID, password;
+    Authentication authentication;
 
-    Login(OutputHandler outputHandler, InputHandler inputHandler) {
+    Login(OutputHandler outputHandler, InputHandler inputHandler,Authentication authentication) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
+        this.authentication = authentication;
     }
 
     public void getDetails() {
@@ -17,6 +19,6 @@ public class Login {
         libraryID = inputHandler.readLine();
         outputHandler.display(ENTER_PASSWORD);
         password = inputHandler.readLine();
-
+        authentication.validate(libraryID,password);
     }
 }
