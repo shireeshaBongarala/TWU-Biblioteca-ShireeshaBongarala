@@ -7,8 +7,8 @@ public class UserInformation {
     ArrayList<User> userList;
     UserInformation(){
         userList = new ArrayList<User>();
-        userList.add(new User("shireesha","shiree@gmail.com",1233456,"123-4567"));
-        userList.add(new User("manohar","manu@gmail.com",123456,"000-0123"));
+        userList.add(new User("shireesha","shiree@gmail.com",1233456,"123-4567",1));
+        userList.add(new User("manohar","manu@gmail.com",123456,"000-0123",2));
     }
     public User getDetails(String libraryId) {
         for(User user : userList){
