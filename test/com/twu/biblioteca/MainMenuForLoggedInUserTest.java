@@ -34,6 +34,7 @@ public class MainMenuForLoggedInUserTest {
         outputHandlerMock = mock(OutputHandler.class);
         inputHandlerMock = mock(InputHandler.class);
         checkOutItem = mock(CheckOutItem.class);
+        returnItem = mock(ReturnItem.class);
         bookListOption = mock(BookListOption.class);
         movieListOptionMock = mock(MovieListOption.class);
         login = mock(Login.class);
@@ -89,5 +90,16 @@ public class MainMenuForLoggedInUserTest {
         mainMenuForLoggedInUser.start();
         verify(checkOutItem).checkOutBook();
 
+    }
+    @Test
+    public void shouldCallReturnBookWhenUserPressesOptionFour(){
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(4,4);
+
+        mainMenuForLoggedInUser.start();
+        verify(returnItem).returnBook();
     }
 }

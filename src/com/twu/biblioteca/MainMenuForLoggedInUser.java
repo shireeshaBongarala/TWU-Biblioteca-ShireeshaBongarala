@@ -28,7 +28,11 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
             case 3:
                 checkOutItem.checkOutBook();
                 break;
-            
+            case 4:
+                returnItem.returnBook();
+                break;
+          
+
         }
     }
 
