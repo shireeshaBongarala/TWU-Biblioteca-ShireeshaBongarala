@@ -24,4 +24,23 @@ public class User {
     public String toString() {
         return "Name : " + name + " Email : " + email +  " Phone : " + phone + " LibraryID :" + libraryID+"\n";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!name.equals(user.name)) return false;
+        return libraryID.equals(user.libraryID);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + libraryID.hashCode();
+        return result;
+    }
 }

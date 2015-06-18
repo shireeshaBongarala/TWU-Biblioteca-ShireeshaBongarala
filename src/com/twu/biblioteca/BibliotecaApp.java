@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.HashMap;
+
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
@@ -14,7 +16,8 @@ public class BibliotecaApp {
     MovieListOption movieListOption;
     Authentication authentication = new Authentication();
     Login login;
-   static User user;
+    static User user;
+    HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
@@ -36,7 +39,7 @@ public class BibliotecaApp {
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler, inputHandler,
                 checkout, books, bookListOption, movieListOption, movies, login, user);
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
-                checkout, books, bookListOption, movieListOption, movies, login,user, returnItem);
+                checkout, books, bookListOption, movieListOption, movies, login, user, returnItem);
 
         if (authentication.getUserState() == 0)
             mainMenuForLibrary.start();
