@@ -50,4 +50,13 @@ public class AuthenticationTest {
 
         assertThat(actualResult, is(2));
     }
+    @Test
+    public void shouldReturnZeroIfUserIsAVisitorOfLibrary(){
+        Authentication authentication = new Authentication();
+
+        authentication.validate("123-0567","password123");
+        int actualResult = authentication.getUserState();
+
+        assertThat(actualResult, is(0));
+    }
 }
