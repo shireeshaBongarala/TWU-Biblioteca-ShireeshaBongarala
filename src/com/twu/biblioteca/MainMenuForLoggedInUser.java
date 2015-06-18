@@ -15,34 +15,34 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
     @Override
     public void start() {
         int choice;
-        outputHandler.display(MAIN_MENU_FOR_LOGGEDIN_USER);
-        choice = inputHandler.readInteger();
+        do {
+            outputHandler.display(MAIN_MENU_FOR_LOGGEDIN_USER);
+            choice = inputHandler.readInteger();
 
-        switch (choice) {
-            case 1:
-                bookListOption.performAction(books);
-                break;
-            case 2:
-                movieListOption.performAction(movies);
-                break;
-            case 3:
-                checkOutItem.checkOutBook();
-                break;
-            case 4:
-                returnItem.returnBook();
-                break;
-            case 5:
-                checkOutItem.checkOutMovie();
-                break;
-            case 6:
-                returnItem.returnMovie();
-                break;
-            case 7:
-                outputHandler.display(QUIT_MESSAGE);
-                break;
+            switch (choice) {
+                case 1:
+                    bookListOption.performAction(books);
+                    break;
+                case 2:
+                    movieListOption.performAction(movies);
+                    break;
+                case 3:
+                    checkOutItem.checkOutBook();
+                    break;
+                case 4:
+                    returnItem.returnBook();
+                    break;
+                case 5:
+                    checkOutItem.checkOutMovie();
+                    break;
+                case 6:
+                    returnItem.returnMovie();
+                    break;
+                case 7:
+                    outputHandler.display(QUIT_MESSAGE);
+                    break;
+            }
+        } while (choice != 7);
 
-
-        }
     }
-
 }
