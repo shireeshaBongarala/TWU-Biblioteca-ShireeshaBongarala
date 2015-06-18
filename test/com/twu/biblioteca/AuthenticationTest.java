@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -58,5 +59,13 @@ public class AuthenticationTest {
         int actualResult = authentication.getUserState();
 
         assertThat(actualResult, is(0));
+    }
+    @Test
+    public void shouldDisplayUserInformationFromLibraryId(){
+        Authentication authentication = new Authentication();
+
+        User user = authentication.getDetails("123-4567");
+
+        MatcherAssert.assertThat(user.toString(), is("Name : shireesha Email : shiree@gmail.com Phone : 1233456 LibraryID :123-4567"));
     }
 }
