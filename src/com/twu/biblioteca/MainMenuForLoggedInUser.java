@@ -27,15 +27,19 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
                     movieListOption.performAction(movies);
                     break;
                 case 3:
+                    outputHandler.display(ENTER_BOOK_NAME);
                     checkOutItem.checkOutBook();
                     break;
                 case 4:
+                    outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
                     returnItem.returnBook();
                     break;
                 case 5:
+                    outputHandler.display(ENTER_MOVIE_NAME);
                     checkOutItem.checkOutMovie();
                     break;
                 case 6:
+                    outputHandler.display(ENTER_MOVIE_NAME);
                     returnItem.returnMovie();
                     break;
                 case 7:
@@ -43,6 +47,5 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
                     break;
             }
         } while (choice != 7);
-
     }
 }

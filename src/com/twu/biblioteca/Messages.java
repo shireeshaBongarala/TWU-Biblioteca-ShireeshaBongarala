@@ -23,5 +23,5 @@ public interface Messages {
     public String MAIN_MENU_OPTIONS = "Select Choice:\n1. Book List\n2. Movie List \n3. Login \n4.Quit\n";
     public String ENTER_LIBRARY_ID = "Enter Library ID :";
     public String ENTER_PASSWORD = "Enter Password :";
-    public String MAIN_MENU_FOR_LOGGEDIN_USER = "Select choice:\n1.Book List\n2.Movie List\n3.Checkout Book\n4.Return Book\n5.Checkout Book\n6.Checkout Movie\n7Quit\n";
+    public String MAIN_MENU_FOR_LOGGEDIN_USER = "Select choice:\n1.Book List\n2.Movie List\n3.Checkout Book\n4.Return Book\n5.Checkout Movie\n6.Return Movie\n7.Quit\n";
 }
