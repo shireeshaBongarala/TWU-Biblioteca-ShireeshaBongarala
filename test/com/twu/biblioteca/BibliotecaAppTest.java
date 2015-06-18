@@ -144,9 +144,9 @@ public class BibliotecaAppTest {
                 .thenReturn(3,5);
         bibliotecaApp.start();
 
-        verify(outputHandlerMock,times(6)).display(textCaptor.capture());
+        verify(outputHandlerMock,atLeast(6)).display(textCaptor.capture());
         List<String> capturedText = textCaptor.getAllValues();
-        assertEquals(PROMPT_USER_FOR_CHECKOUT_MOVIE, capturedText.get(3));
+        assertEquals(PROMPT_USER_FOR_CHECKOUT_MOVIE, capturedText.get(4));
     }
     @Test
     public void shouldCallCheckoutMovieIfUserIsInterestedToCheckOutAMovie() {
