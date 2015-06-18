@@ -1,17 +1,40 @@
 package com.twu.biblioteca;
 
-import static com.twu.biblioteca.Messages.MAIN_MENU_FOR_LOGGEDIN_USER;
-import static com.twu.biblioteca.Messages.MAIN_MENU_OPTIONS;
-import static com.twu.biblioteca.Messages.QUIT_MESSAGE;
+import static com.twu.biblioteca.Messages.*;
 
-public class MainMenuForLoggedInUser  extends MainMenuForLibrary {
+public class MainMenuForLoggedInUser extends MainMenuForLibrary {
+    ReturnItem returnItem;
+
     MainMenuForLoggedInUser(OutputHandler outputHandler, InputHandler inputHandler,
-                            CheckOutItem checkOutItem, Books books, BookListOption bookListOption, MovieListOption movieListOption, Movies movies, Login login) {
+                            CheckOutItem checkOutItem, Books books, BookListOption bookListOption,
+                            MovieListOption movieListOption, Movies movies, Login login, ReturnItem returnItem) {
         super(outputHandler, inputHandler, checkOutItem, books, bookListOption, movieListOption, movies, login);
+        this.returnItem = returnItem;
     }
 
     @Override
     public void start() {
+        int choice;
         outputHandler.display(MAIN_MENU_FOR_LOGGEDIN_USER);
+        choice = inputHandler.readInteger();
+
+        switch (choice) {
+            case 1:
+                bookListOption.performAction(books);
+                break;
+            case 2:
+                movieListOption.performAction(movies);
+                break;
+            case 3:
+                checkOutItem.checkOutBook();
+                break;
+            case 4:
+                returnItem.returnBook();
+                break;
+            case 5:
+                outputHandler.display(QUIT_MESSAGE);
+                break;
+        }
     }
+
 }

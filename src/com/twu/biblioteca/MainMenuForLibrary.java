@@ -44,6 +44,7 @@ public class MainMenuForLibrary {
                     outputHandler.display(QUIT_MESSAGE);
                     break;
             }
+            if(choice == 3) break;
         } while (choice != 4);
     }
 }

@@ -34,8 +34,16 @@ public class BibliotecaApp {
         outputHandler.display(WELCOME_MESSAGE);
         MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler, inputHandler,
                 checkout, books, bookListOption, movieListOption, movies, login);
-   // mainMenuForLibrary.start();
-       MainMenuForUsersInLibrary();
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
+                checkout, books, bookListOption, movieListOption, movies, login,returnItem);
+
+            if(authentication.getUserState()== 0)
+                         mainMenuForLibrary.start();
+            if(authentication.getUserState() == 1)
+                        mainMenuForLoggedInUser.start();
+
+
+    //   MainMenuForUsersInLibrary();
     }
 
     private void MainMenuForUsersInLibrary() {

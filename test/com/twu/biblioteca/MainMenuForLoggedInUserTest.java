@@ -23,6 +23,8 @@ public class MainMenuForLoggedInUserTest {
     @Mock
     Authentication authentication;
     @Mock
+    ReturnItem returnItem;
+    @Mock
     Login login;
     private Books books;
     private Movies movies;
@@ -43,12 +45,37 @@ public class MainMenuForLoggedInUserTest {
     @Test
     public void shouldDisplayAllOptionsForUser() {
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
-                books, bookListOption, movieListOptionMock, movies, login);
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1, 4);
         mainMenuForLoggedInUser.start();
 
         verify(outputHandlerMock, atLeast(1)).display(MAIN_MENU_FOR_LOGGEDIN_USER);
+    }
+
+
+    @Test
+    public void shouldDisplayBookListWhenUserPressesOne() {
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(1,4);
+
+        mainMenuForLoggedInUser.start();
+        verify(bookListOption,atLeast(1)).performAction(books);
+    }
+
+    @Test
+    public void shouldDisplayMovieListWhenUserPressesTwo() {
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,returnItem);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(2,4);
+
+        mainMenuForLoggedInUser.start();
+        verify(movieListOptionMock).performAction(movies);
     }
 }
