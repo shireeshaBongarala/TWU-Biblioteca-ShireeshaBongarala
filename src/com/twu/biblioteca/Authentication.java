@@ -37,4 +37,8 @@ public class Authentication {
         return false;
     }
 
+    public int getUserState(){
+        return userState;
+    }
+
 }
