@@ -15,6 +15,7 @@ public class Login {
     }
 
     public void performAction() {
+        inputHandler.readLine();
         outputHandler.display(ENTER_LIBRARY_ID);
         libraryID = inputHandler.readLine();
         outputHandler.display(ENTER_PASSWORD);

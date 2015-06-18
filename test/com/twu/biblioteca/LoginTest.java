@@ -46,7 +46,7 @@ public class LoginTest {
     public void shouldGetTheLibraryIDFromTheUser() {
         login.performAction();
 
-        verify(inputHandlerMock, times(2)).readLine();
+        verify(inputHandlerMock, times(3)).readLine();
     }
 
     @Test
@@ -65,13 +65,13 @@ public class LoginTest {
 
         login.performAction();
 
-        verify(inputHandlerMock, times(2)).readLine();
+        verify(inputHandlerMock, times(3)).readLine();
     }
 
     @Test
     public void shouldCallAuthenticateValidationWhenRequiredInputsAreAvailable() {
         when(inputHandlerMock.readLine())
-                .thenReturn("123-4567","password123");
+                .thenReturn("\n","123-4567","password123");
         login.performAction();
         verify(authentication).validate("123-4567", "password123");
     }
