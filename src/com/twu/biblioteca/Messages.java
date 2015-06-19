@@ -25,4 +25,5 @@ public interface Messages {
     public String ENTER_PASSWORD = "Enter Password :";
     public String MAIN_MENU_FOR_LOGGEDIN_USER = "Select choice:\n1.Book List\n2.Movie List\n3.Checkout Book\n" +
             "4.Return Book\n5.Checkout Movie\n6.Return Movie\n7.About user\n8.Quit\n";
+    String MAIN_MENU_FOR_LIBRARIAN =  "Select choice:\n1.Book List\n2.Movie List\n3.CheckedOutItemsHistory\n4.About user\n5.Quit\n";
 }
