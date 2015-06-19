@@ -14,12 +14,14 @@ public class EntryPoint {
         Library library = new Library();
         Movies movies = new Movies(library.getAvailableMovieList());
         Books books = new Books(library.getAvailableBookList());
+       CheckOutItem checkOutItem =  new CheckOutItem(outputHandler, inputHandler, library);
         bookUserHashMap = new HashMap<Book, User>();
         movieUserHashMap = new HashMap<Movie, User>();
         Authentication authentication = new Authentication();
+       BookListOption bookListOption = new BookListOption(outputHandler, checkOutItem);
 
         new BibliotecaApp(
                 outputHandler, inputHandler, books, new ReturnItem(outputHandler, inputHandler, library),
-                new CheckOutItem(outputHandler, inputHandler, library), movies,authentication).start();
+              checkOutItem  , movies,authentication,bookListOption).start();
     }
 }
