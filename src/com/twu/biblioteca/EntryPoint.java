@@ -22,8 +22,10 @@ public class EntryPoint {
         MovieListOption movieListOption = new MovieListOption(outputHandler, checkOutItem);
         UserDetailsForLibrarian userDetailsForLibrarian = new UserDetailsForLibrarian(outputHandler);
         user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
+        Login login = new Login(outputHandler,inputHandler,authentication);
+
         new BibliotecaApp(
                 outputHandler, inputHandler, books, new ReturnItem(outputHandler, inputHandler, library),
-                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian).start();
+                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian,login).start();
     }
 }

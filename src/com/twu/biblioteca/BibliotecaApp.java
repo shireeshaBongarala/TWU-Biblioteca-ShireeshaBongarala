@@ -13,7 +13,7 @@ public class BibliotecaApp {
     Movies movies;
     BookListOption bookListOption;
     MovieListOption movieListOption;
-    Authentication authentication = new Authentication();
+    Authentication authentication;
     Login login;
     UserDetailsForLibrarian userDetailsForLibrarian;
     static int mainVariable = 0;
@@ -21,7 +21,7 @@ public class BibliotecaApp {
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies,Authentication authentication,
-                         BookListOption bookListOption,MovieListOption movieListOption,UserDetailsForLibrarian userDetailsForLibrarian) {
+                         BookListOption bookListOption,MovieListOption movieListOption,UserDetailsForLibrarian userDetailsForLibrarian,Login login) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.returnItem = returnItem;
@@ -32,8 +32,7 @@ public class BibliotecaApp {
         this.bookListOption = bookListOption;
         this.movieListOption = movieListOption;
         this.userDetailsForLibrarian  = userDetailsForLibrarian;
-
-
+        this.login = login;
     }
 
     public void start() {
