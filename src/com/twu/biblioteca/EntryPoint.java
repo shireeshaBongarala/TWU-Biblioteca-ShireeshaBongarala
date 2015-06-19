@@ -15,6 +15,7 @@ public class EntryPoint {
         Movies movies = new Movies(library.getAvailableMovieList());
         Books books = new Books(library.getAvailableBookList());
         CheckOutItem checkOutItem = new CheckOutItem(outputHandler, inputHandler, library);
+        ReturnItem returnItem = new ReturnItem(outputHandler,inputHandler,library);
         bookUserHashMap = new HashMap<Book, User>();
         movieUserHashMap = new HashMap<Movie, User>();
         Authentication authentication = new Authentication();
@@ -24,8 +25,14 @@ public class EntryPoint {
         user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
         Login login = new Login(outputHandler,inputHandler,authentication);
 
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler, inputHandler,
+                checkOutItem, books, bookListOption, movieListOption, movies, login, user);
+        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
+                checkOutItem, books, bookListOption, movieListOption, movies, login, user, returnItem);
+
+
         new BibliotecaApp(
                 outputHandler, inputHandler, books, new ReturnItem(outputHandler, inputHandler, library),
-                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian,login).start();
+                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian,login,mainMenuForLibrary,mainMenuForLoggedInUser).start();
     }
 }

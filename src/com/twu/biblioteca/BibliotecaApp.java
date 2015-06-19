@@ -16,12 +16,15 @@ public class BibliotecaApp {
     Authentication authentication;
     Login login;
     UserDetailsForLibrarian userDetailsForLibrarian;
+    MainMenuForLibrary mainMenuForLibrary;
+    MainMenuForLoggedInUser mainMenuForLoggedInUser;
     static int mainVariable = 0;
 
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies,Authentication authentication,
-                         BookListOption bookListOption,MovieListOption movieListOption,UserDetailsForLibrarian userDetailsForLibrarian,Login login) {
+                         BookListOption bookListOption,MovieListOption movieListOption,UserDetailsForLibrarian userDetailsForLibrarian,
+                         Login login,MainMenuForLibrary mainMenuForLibrary,MainMenuForLoggedInUser mainMenuForLoggedInUser) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.returnItem = returnItem;
@@ -33,14 +36,12 @@ public class BibliotecaApp {
         this.movieListOption = movieListOption;
         this.userDetailsForLibrarian  = userDetailsForLibrarian;
         this.login = login;
+        this.mainMenuForLibrary = mainMenuForLibrary;
+        this.mainMenuForLoggedInUser = mainMenuForLoggedInUser;
     }
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandler, inputHandler,
-                checkout, books, bookListOption, movieListOption, movies, login, user);
-        MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
-                checkout, books, bookListOption, movieListOption, movies, login, user, returnItem);
         MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandler, inputHandler, bookListOption,
                 books, movieListOption, movies, userDetailsForLibrarian);
 
