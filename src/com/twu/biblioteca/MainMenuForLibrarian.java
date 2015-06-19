@@ -9,14 +9,16 @@ public class MainMenuForLibrarian {
     Books books;
     Movies movies;
     MovieListOption movieListOption;
+    UserDetailsForLibrarian userDetailsForLibrarian;
 
-    public MainMenuForLibrarian(OutputHandler outputHandler,InputHandler inputHandler,BookListOption bookListOption,Books books,MovieListOption movieListOption,Movies movies) {
+    public MainMenuForLibrarian(OutputHandler outputHandler,InputHandler inputHandler,BookListOption bookListOption,Books books,MovieListOption movieListOption,Movies movies,UserDetailsForLibrarian userDetailsForLibrarian) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.bookListOption = bookListOption;
         this.books = books;
         this.movies = movies;
         this.movieListOption = movieListOption;
+        this.userDetailsForLibrarian = userDetailsForLibrarian;
     }
 
     public void start() {
@@ -29,6 +31,9 @@ public class MainMenuForLibrarian {
                 break;
             case 2:
                 movieListOption.performAction(movies);
+                break;
+            case 3:
+                userDetailsForLibrarian.displayBookList();
                 break;
         }
     }

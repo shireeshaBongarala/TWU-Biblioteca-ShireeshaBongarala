@@ -20,19 +20,23 @@ public class MainMenuForLibrarianTest {
     BookListOption bookListOptionMock;
     @Mock
     MovieListOption movieListOptionMock;
+    @Mock
+    UserDetailsForLibrarian userDetailsForLibrarianMock;
     @Before
     public void setUp() {
         outputHandlerMock = mock(OutputHandler.class);
         inputHandlerMock = mock(InputHandler.class);
         bookListOptionMock = mock(BookListOption.class);
         movieListOptionMock = mock(MovieListOption.class);
+        userDetailsForLibrarianMock = mock(UserDetailsForLibrarian.class);
         books = mock(Books.class);
         movies = mock(Movies.class);
 
     }
     @Test
     public void shouldDisplayAllOptionsForUser() {
-        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock, bookListOptionMock,books,movieListOptionMock,movies);
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
+                bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
 
         mainMenuForLibrarian.start();
 
@@ -40,7 +44,8 @@ public class MainMenuForLibrarianTest {
     }
     @Test
     public void shouldDisplayBookListWhenUserPressesOne() {
-        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock, bookListOptionMock,books,movieListOptionMock,movies);
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
+                bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
 
      when(inputHandlerMock.readInteger())
              .thenReturn(1);
@@ -50,12 +55,24 @@ public class MainMenuForLibrarianTest {
     }
     @Test
     public void shouldDisplayMovieListWhenUserPressesTwo() {
-        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock, bookListOptionMock,books,movieListOptionMock,movies);
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
+                bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2);
         mainMenuForLibrarian.start();
 
         verify(movieListOptionMock).performAction(movies);
+    }
+    @Test
+    public void shouldDisplayDetailsOfUsersWhoCheckedoutItemsFromLibrary(){
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
+                bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3);
+        mainMenuForLibrarian.start();
+
+        verify(userDetailsForLibrarianMock).displayBookList();
     }
 }
