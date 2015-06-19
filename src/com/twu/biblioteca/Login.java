@@ -7,7 +7,7 @@ public class Login {
     InputHandler inputHandler;
     String libraryID, password;
     Authentication authentication;
-
+    int userState = 0;
     Login(OutputHandler outputHandler, InputHandler inputHandler,Authentication authentication) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
@@ -21,6 +21,7 @@ public class Login {
         outputHandler.display(ENTER_PASSWORD);
         password = inputHandler.readLine();
         if(authentication.validate(libraryID,password)){
+            userState = authentication.getUserState();
             return authentication.getUser(libraryID);
         }
         return user;
