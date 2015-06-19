@@ -20,7 +20,8 @@ public class BibliotecaApp {
 
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
-                         ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies,Authentication authentication,BookListOption bookListOption) {
+                         ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies,Authentication authentication,
+                         BookListOption bookListOption,MovieListOption movieListOption) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.returnItem = returnItem;
@@ -29,8 +30,8 @@ public class BibliotecaApp {
         this.books = books;
         this.authentication = authentication;
         this.bookListOption = bookListOption;
-        movieListOption = new MovieListOption(outputHandler, checkOutItem);
-        login = new Login(outputHandler, inputHandler, authentication);
+        this.movieListOption = movieListOption;
+        
         userDetailsForLibrarian = new UserDetailsForLibrarian(outputHandler);
         user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
     }

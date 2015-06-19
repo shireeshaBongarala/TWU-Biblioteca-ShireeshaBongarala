@@ -19,9 +19,10 @@ public class EntryPoint {
         movieUserHashMap = new HashMap<Movie, User>();
         Authentication authentication = new Authentication();
        BookListOption bookListOption = new BookListOption(outputHandler, checkOutItem);
+       MovieListOption movieListOption = new MovieListOption(outputHandler, checkOutItem);
 
         new BibliotecaApp(
                 outputHandler, inputHandler, books, new ReturnItem(outputHandler, inputHandler, library),
-              checkOutItem  , movies,authentication,bookListOption).start();
+              checkOutItem  , movies,authentication,bookListOption,movieListOption).start();
     }
 }
