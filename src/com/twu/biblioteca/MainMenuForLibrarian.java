@@ -22,8 +22,10 @@ public class MainMenuForLibrarian {
     }
 
     public void start() {
+        int choice;
+        do {
         outputHandler.display(MAIN_MENU_FOR_LIBRARIAN);
-        int choice = inputHandler.readInteger();
+         choice = inputHandler.readInteger();
 
         switch (choice) {
             case 1:
@@ -43,5 +45,6 @@ public class MainMenuForLibrarian {
                 outputHandler.display(QUIT_MESSAGE);
                 break;
         }
+    }while (choice != 5);
     }
 }

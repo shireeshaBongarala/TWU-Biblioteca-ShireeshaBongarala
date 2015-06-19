@@ -41,6 +41,8 @@ public class MainMenuForLibrarianTest {
         MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock, inputHandlerMock,
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
+        when(inputHandlerMock.readInteger())
+                .thenReturn(1,5);
         mainMenuForLibrarian.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.MAIN_MENU_FOR_LIBRARIAN);
@@ -52,7 +54,7 @@ public class MainMenuForLibrarianTest {
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(1);
+                .thenReturn(1,5);
         mainMenuForLibrarian.start();
 
         verify(bookListOptionMock, atLeast(1)).performAction(books);
@@ -64,7 +66,7 @@ public class MainMenuForLibrarianTest {
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(2);
+                .thenReturn(2,5);
         mainMenuForLibrarian.start();
 
         verify(movieListOptionMock).performAction(movies);
@@ -76,7 +78,7 @@ public class MainMenuForLibrarianTest {
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3);
+                .thenReturn(3,5);
         mainMenuForLibrarian.start();
 
         verify(userDetailsForLibrarianMock).displayBookList();
@@ -88,7 +90,7 @@ public class MainMenuForLibrarianTest {
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3);
+                .thenReturn(3,5);
         mainMenuForLibrarian.start();
 
         verify(userDetailsForLibrarianMock).displayMovieList();
@@ -100,7 +102,7 @@ public class MainMenuForLibrarianTest {
                 bookListOptionMock, books, movieListOptionMock, movies, userDetailsForLibrarianMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(4);
+                .thenReturn(4,5);
         mainMenuForLibrarian.start();
 
         verify(outputHandlerMock).display(EntryPoint.user);
