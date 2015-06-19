@@ -65,7 +65,7 @@ public class MainMenuForLibrarianTest {
         verify(movieListOptionMock).performAction(movies);
     }
     @Test
-    public void shouldDisplayDetailsOfUsersWhoCheckedoutItemsFromLibrary(){
+    public void shouldDisplayDetailsOfUsersWhoCheckedoutBooksFromLibrary(){
         MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
                 bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
 
@@ -74,5 +74,16 @@ public class MainMenuForLibrarianTest {
         mainMenuForLibrarian.start();
 
         verify(userDetailsForLibrarianMock).displayBookList();
+    }
+    @Test
+    public void shouldDisplayDetailsOfUsersWhoCheckedoutMoviesFromLibrary(){
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandlerMock,inputHandlerMock,
+                bookListOptionMock,books,movieListOptionMock,movies,userDetailsForLibrarianMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3);
+        mainMenuForLibrarian.start();
+
+        verify(userDetailsForLibrarianMock).displayMovieList();
     }
 }

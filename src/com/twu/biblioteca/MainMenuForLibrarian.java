@@ -34,6 +34,7 @@ public class MainMenuForLibrarian {
                 break;
             case 3:
                 userDetailsForLibrarian.displayBookList();
+                userDetailsForLibrarian.displayMovieList();
                 break;
         }
     }
