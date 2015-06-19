@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BibliotecaAppTest {
@@ -30,6 +32,14 @@ public class BibliotecaAppTest {
     private Movies moviesMock;
     @Mock
     private Authentication authenticationMock;
+    @Mock
+    private MainMenuForLibrary mainMenuForLibraryMock;
+
+
+    @Before
+    public void setUp(){
+        initMocks(this);
+    }
 
     @Test
     public void shouldDisplayWelcomeMessageWhenBibliotecaAppStarts() {
@@ -40,7 +50,7 @@ public class BibliotecaAppTest {
                 .thenReturn(4);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock, checkOutItemMock, moviesMock);
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock, checkOutItemMock, moviesMock,authenticationMock);
         bibliotecaApp.start();
 
 

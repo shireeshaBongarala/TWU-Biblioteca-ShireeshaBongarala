@@ -42,6 +42,7 @@ public class MainMenuForLibrarian {
                 outputHandler.display(EntryPoint.user);
                 break;
             case 5:
+                EntryPoint.user =  new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
                 outputHandler.display(QUIT_MESSAGE);
                 break;
         }
