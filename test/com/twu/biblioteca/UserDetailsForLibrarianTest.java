@@ -28,4 +28,14 @@ public class UserDetailsForLibrarianTest {
 
         verify(outputHandlerMock).display(anyString());
     }
+    @Test
+    public void shouldDisplayUserListWhoCheckedOutAMovie(){
+        movieUserHashMap = new HashMap<Movie, User>();
+        movieUserHashMap.put(new Movie("IronMan",2006,"director",9),new User("shiree","shiree@abc.com",123456,"123-4567",1));
+        UserDetailsForLibrarian userDetailsForLibrarian = new UserDetailsForLibrarian(outputHandlerMock);
+
+        userDetailsForLibrarian.displayMovieList();
+
+        verify(outputHandlerMock).display(anyString());
+    }
 }
