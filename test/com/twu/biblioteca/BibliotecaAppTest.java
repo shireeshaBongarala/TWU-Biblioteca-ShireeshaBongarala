@@ -36,6 +36,8 @@ public class BibliotecaAppTest {
     private BookListOption bookListOptionMock;
     @Mock
     private MovieListOption movieListOptionMock;
+    @Mock
+    private UserDetailsForLibrarian userDetailsForLibrarianMock;
 
     @Before
     public void setUp(){
@@ -52,7 +54,7 @@ public class BibliotecaAppTest {
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
-                        checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock, movieListOptionMock);
+                        checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock, movieListOptionMock,userDetailsForLibrarianMock);
         bibliotecaApp.start();
 
 
