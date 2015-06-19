@@ -66,6 +66,6 @@ public class AuthenticationTest {
 
         User user = authentication.getUser("123-4567");
 
-        MatcherAssert.assertThat(user.toString(), is("Name : shireesha Email : shiree@gmail.com Phone : 1233456 LibraryID :123-4567"));
+        MatcherAssert.assertThat(user.toString(), is("Name : shireesha Email : shiree@gmail.com Phone : 1233456 LibraryID :123-4567\n"));
     }
 }

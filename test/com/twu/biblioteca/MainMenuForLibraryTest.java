@@ -44,6 +44,7 @@ public class MainMenuForLibraryTest {
         bookListOption = mock(BookListOption.class);
         movieListOptionMock = mock(MovieListOption.class);
         login = mock(Login.class);
+        user = mock(User.class);
         Library library = new Library();
         books = new Books(library.getAvailableBookList());
         movies = new Movies(library.getAvailableMovieList());

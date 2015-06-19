@@ -46,7 +46,7 @@ public class MainMenuForLibrary {
                     outputHandler.display(QUIT_MESSAGE);
                     break;
             }
-            if (choice == 3 && BibliotecaApp.user.getUserType() != 0)
+            if (choice == 3 && user.getUserType() != 0)
                 break;
         } while (choice != 4);
     }
