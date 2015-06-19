@@ -2,14 +2,11 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
 
-import java.util.List;
 
 import static com.twu.biblioteca.Messages.*;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
@@ -99,7 +96,6 @@ public class MainMenuForLibraryTest {
 
         mainMenuForLibrary.start();
 
-      //  verify(user).getUserType();
         verify(login).performAction(user);
     }
     @Test

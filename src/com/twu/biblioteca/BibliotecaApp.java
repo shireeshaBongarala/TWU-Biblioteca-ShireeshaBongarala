@@ -17,7 +17,7 @@ public class BibliotecaApp {
     Authentication authentication = new Authentication();
     Login login;
     static User user;
-    HashMap<Book, User> bookUserHashMap = new HashMap<Book, User>();
+
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies) {
