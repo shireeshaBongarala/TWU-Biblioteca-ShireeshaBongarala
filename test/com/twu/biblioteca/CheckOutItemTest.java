@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -62,7 +64,9 @@ public class CheckOutItemTest {
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
         Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nC++".getBytes()));
-        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,libraryMock);
+        when(libraryMock.additionToCheckedOutBookListIsSuccessful(anyString()))
+                .thenReturn(true);
 
         checkOutItem.checkOutBook();
 
@@ -73,7 +77,9 @@ public class CheckOutItemTest {
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredMovieIsAvailable(){
         Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nIronMan".getBytes()));
-        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,library);
+        CheckOutItem checkOutItem = new CheckOutItem(outputHandlerMock,inputHandler,libraryMock);
+        when(libraryMock.additionToCheckedOutMovieListIsSuccessful(anyString()))
+                .thenReturn(true);
 
         checkOutItem.checkOutMovie();
 

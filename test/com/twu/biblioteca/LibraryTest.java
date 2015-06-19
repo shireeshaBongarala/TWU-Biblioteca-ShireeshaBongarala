@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertFalse;
@@ -29,6 +30,7 @@ public class LibraryTest {
     @Test
     public void shouldCheckOutBookFromAvailableBookListWhenBookIsValidAvaialbleBook() {
         Library library = new Library();
+        EntryPoint.bookUserHashMap = new HashMap<Book, User>();
 
         String bookName = "C++";
 
@@ -54,6 +56,7 @@ public class LibraryTest {
     @Test
     public void shouldCheckOutMovieFromAvailableMovieListWhenMovieIsAValidAvaialableMovie() {
         Library library = new Library();
+        EntryPoint.movieUserHashMap = new HashMap<Movie, User>();
 
         String movieName = "IronMan";
 

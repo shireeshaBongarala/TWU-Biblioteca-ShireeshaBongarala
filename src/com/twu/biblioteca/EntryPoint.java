@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class EntryPoint {
     static HashMap<Book, User> bookUserHashMap;
     static HashMap<Movie, User> movieUserHashMap;
+    static User user;
 
     public static void main(String args[]) {
         OutputHandler outputHandler = new OutputHandler(new PrintStream(System.out));

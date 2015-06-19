@@ -149,6 +149,6 @@ public class MainMenuForLoggedInUserTest {
                 .thenReturn(7,8);
 
         mainMenuForLoggedInUser.start();
-       verify(outputHandlerMock).display(BibliotecaApp.user);
+       verify(outputHandlerMock).display(EntryPoint.user);
     }
 }

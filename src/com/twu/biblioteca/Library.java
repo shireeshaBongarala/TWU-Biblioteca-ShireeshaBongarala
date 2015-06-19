@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
+import static com.twu.biblioteca.EntryPoint.*;
+
 public class Library {
     private ArrayList<Book> availableBookList;
     private ArrayList <Book> checkedOutBookList;
@@ -47,6 +49,7 @@ public class Library {
         for(Book book : availableBookList){
             if(book.getName().equals(bookName)) {
                 checkedOutBookList.add(book);
+                bookUserHashMap.put(book,user);
                 availableBookList.remove(book);
                 return true;
             }
@@ -67,6 +70,7 @@ public class Library {
         for(Movie  movie : availableMovieList){
             if(movie.getName().equals(movieName)) {
                 checkedOutMovieList.add(movie);
+                movieUserHashMap.put(movie,user);
                 availableMovieList.remove(movie);
                 return true;
             }

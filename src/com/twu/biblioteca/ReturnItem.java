@@ -21,6 +21,7 @@ public class ReturnItem {
         inputHandler.readLine();
         String bookName = inputHandler.readLine();
         if (library.additionToAvailableBookListIsSuccessful(bookName)) {
+
             outputHandler.display(SUCCESSFUL_BOOK_RETURN);
         } else {
             outputHandler.display(UNSUCCESSFUL_BOOK_RETURN);

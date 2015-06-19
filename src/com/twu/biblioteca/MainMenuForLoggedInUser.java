@@ -44,7 +44,7 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
                     returnItem.returnMovie();
                     break;
                 case 7:
-                    outputHandler.display(BibliotecaApp.user);
+                    outputHandler.display(EntryPoint.user);
                     break;
                 case 8:
                     outputHandler.display(QUIT_MESSAGE);
