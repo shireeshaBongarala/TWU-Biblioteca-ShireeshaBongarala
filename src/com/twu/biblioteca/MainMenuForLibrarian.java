@@ -39,7 +39,9 @@ public class MainMenuForLibrarian {
             case 4:
                 outputHandler.display(EntryPoint.user);
                 break;
-
+            case 5:
+                outputHandler.display(QUIT_MESSAGE);
+                break;
         }
     }
 }

@@ -105,7 +105,7 @@ public class MainMenuForLoggedInUserTest {
         verify(returnItem).returnBook();
     }
     @Test
-    public void shouldDisplayQuitMessageWhenUserPressesOptionSeven(){
+    public void shouldDisplayQuitMessageWhenUserPressesOptionEight(){
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandlerMock, inputHandlerMock, checkOutItem,
                 books, bookListOption, movieListOptionMock, movies, login,user,returnItem);
 
