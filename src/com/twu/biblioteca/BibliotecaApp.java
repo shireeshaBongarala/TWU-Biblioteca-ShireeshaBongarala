@@ -14,6 +14,7 @@ public class BibliotecaApp {
     MovieListOption movieListOption;
     Authentication authentication = new Authentication();
     Login login;
+    UserDetailsForLibrarian userDetailsForLibrarian;
 
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
@@ -28,6 +29,7 @@ public class BibliotecaApp {
         bookListOption = new BookListOption(outputHandler, checkout);
         movieListOption = new MovieListOption(outputHandler, checkOutItem);
         login = new Login(outputHandler, inputHandler, authentication);
+        UserDetailsForLibrarian userDetailsForLibrarian = new UserDetailsForLibrarian(outputHandler);
         EntryPoint.user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
     }
 
@@ -37,10 +39,13 @@ public class BibliotecaApp {
                 checkout, books, bookListOption, movieListOption, movies, login, EntryPoint.user);
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
                 checkout, books, bookListOption, movieListOption, movies, login, EntryPoint.user, returnItem);
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandler,inputHandler,bookListOption,books,movieListOption,movies,userDetailsForLibrarian);
 
         if (authentication.getUserState() == 0)
             mainMenuForLibrary.start();
         if (EntryPoint.user.getUserType() == 1)
             mainMenuForLoggedInUser.start();
+        if(EntryPoint.user.getUserType() == 2)
+            mainMenuForLibrarian.start();
     }
 }
