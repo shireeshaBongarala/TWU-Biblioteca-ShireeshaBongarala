@@ -18,13 +18,14 @@ public class BibliotecaApp {
     UserDetailsForLibrarian userDetailsForLibrarian;
     MainMenuForLibrary mainMenuForLibrary;
     MainMenuForLoggedInUser mainMenuForLoggedInUser;
+    MainMenuForLibrarian mainMenuForLibrarian;
     static int mainVariable = 0;
 
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
                          ReturnItem returnItem, CheckOutItem checkOutItem, Movies movies,Authentication authentication,
                          BookListOption bookListOption,MovieListOption movieListOption,UserDetailsForLibrarian userDetailsForLibrarian,
-                         Login login,MainMenuForLibrary mainMenuForLibrary,MainMenuForLoggedInUser mainMenuForLoggedInUser) {
+                         Login login,MainMenuForLibrary mainMenuForLibrary,MainMenuForLoggedInUser mainMenuForLoggedInUser,MainMenuForLibrarian mainMenuForLibrarian) {
         this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.returnItem = returnItem;
@@ -38,13 +39,11 @@ public class BibliotecaApp {
         this.login = login;
         this.mainMenuForLibrary = mainMenuForLibrary;
         this.mainMenuForLoggedInUser = mainMenuForLoggedInUser;
+        this.mainMenuForLibrarian = mainMenuForLibrarian;
     }
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandler, inputHandler, bookListOption,
-                books, movieListOption, movies, userDetailsForLibrarian);
-
 
           while(mainVariable == 0) {
         if (user.getUserType() == 0)

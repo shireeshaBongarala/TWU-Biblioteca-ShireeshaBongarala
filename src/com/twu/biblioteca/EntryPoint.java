@@ -29,10 +29,13 @@ public class EntryPoint {
                 checkOutItem, books, bookListOption, movieListOption, movies, login, user);
         MainMenuForLoggedInUser mainMenuForLoggedInUser = new MainMenuForLoggedInUser(outputHandler, inputHandler,
                 checkOutItem, books, bookListOption, movieListOption, movies, login, user, returnItem);
+        MainMenuForLibrarian mainMenuForLibrarian = new MainMenuForLibrarian(outputHandler, inputHandler, bookListOption,
+                books, movieListOption, movies, userDetailsForLibrarian);
 
 
         new BibliotecaApp(
                 outputHandler, inputHandler, books, new ReturnItem(outputHandler, inputHandler, library),
-                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian,login,mainMenuForLibrary,mainMenuForLoggedInUser).start();
+                checkOutItem, movies, authentication, bookListOption, movieListOption, userDetailsForLibrarian,
+                login,mainMenuForLibrary,mainMenuForLoggedInUser,mainMenuForLibrarian).start();
     }
 }
