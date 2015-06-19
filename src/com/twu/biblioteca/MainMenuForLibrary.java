@@ -43,6 +43,7 @@ public class MainMenuForLibrary {
                    EntryPoint.user = login.performAction(user);
                     break;
                 case 4:
+                    BibliotecaApp.mainVariable = 1;
                     outputHandler.display(QUIT_MESSAGE);
                     break;
             }
