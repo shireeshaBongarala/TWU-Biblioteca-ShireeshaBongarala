@@ -33,7 +33,7 @@ public class BibliotecaApp {
         this.movieListOption = movieListOption;
         this.userDetailsForLibrarian  = userDetailsForLibrarian;
 
-        user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
+
     }
 
     public void start() {
