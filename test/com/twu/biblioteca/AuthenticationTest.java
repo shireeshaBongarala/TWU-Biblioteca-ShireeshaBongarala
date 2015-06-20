@@ -4,6 +4,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class AuthenticationTest {
@@ -80,9 +81,17 @@ public class AuthenticationTest {
     @Test
     public void shouldReturnFalseIfValidLibrarianIdAndInValidPasswordIsEntered(){
         Authentication authentication = new Authentication();
-        
+
         boolean actualResult = authentication.validate("000-0123","password");
 
         assertThat(actualResult,is(false));
+    }
+    @Test
+    public void shouldReturnNullIfThereIsnNoUserWithTheGivenLibraryId() {
+        Authentication authentication = new Authentication();
+
+        User actualUser = authentication.getUser("123-4456");
+        
+        assertThat(actualUser,is(nullValue()));
     }
 }
