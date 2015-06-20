@@ -110,4 +110,19 @@ public class MainMenuForLibraryTest {
 
         verify(outputHandlerMock).display(QUIT_MESSAGE);
     }
+    @Test
+    public void shoulCallLoginIfChoiceIsThreeI(){
+        MainMenuForLibrary mainMenuForLibrary = new MainMenuForLibrary(outputHandlerMock, inputHandlerMock, checkOutItem,
+                books, bookListOption, movieListOptionMock, movies, login,user);
+
+        when(user.getUserType())
+                .thenReturn(1);
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+        when(login.getUserState())
+                .thenReturn(1);
+        mainMenuForLibrary.start();
+
+        verify(login).performAction(user);
+    }
 }
