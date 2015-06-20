@@ -68,4 +68,12 @@ public class AuthenticationTest {
 
         MatcherAssert.assertThat(user.toString(), is("Name : shireesha Email : shiree@gmail.com Phone : 1233456 LibraryID :123-4567\n"));
     }
+    @Test
+    public void shouldReturnFalseIfValidLibraryIdAndInvalidPassword(){
+        Authentication authentication = new Authentication();
+
+        boolean actualResult = authentication.validate("123-4567","password");
+
+        assertThat(actualResult,is(false));
+    }
 }

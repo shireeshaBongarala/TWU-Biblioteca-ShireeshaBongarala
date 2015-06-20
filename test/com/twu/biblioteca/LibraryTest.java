@@ -78,6 +78,14 @@ public class LibraryTest {
 
         assertThat(library.additionToAvailableBookListIsSuccessful(movieName),is(false));
     }
+    @Test
+    public void shouldReturnFalseIIfTheBookIsNotAvailable(){
+        Library library = new Library();
+
+        String movieName = "gggg";
+
+        assertThat(library.additionToCheckedOutMovieListIsSuccessful(movieName), is(false));
+    }
 }
 
 
