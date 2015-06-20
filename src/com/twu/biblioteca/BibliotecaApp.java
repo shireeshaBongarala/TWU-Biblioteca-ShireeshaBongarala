@@ -44,14 +44,6 @@ public class BibliotecaApp {
 
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
-
-          while(loopVariable == 0) {
-        if (user.getUserType() == 0)
-            mainMenuForLibrary.start();
-        if (user.getUserType() == 1)
-            mainMenuForLoggedInUser.start();
-        if (user.getUserType() == 2)
-            mainMenuForLibrarian.start();
-         }
+        
     }
 }

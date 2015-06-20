@@ -91,7 +91,7 @@ public class AuthenticationTest {
         Authentication authentication = new Authentication();
 
         User actualUser = authentication.getUser("123-4456");
-        
+
         assertThat(actualUser,is(nullValue()));
     }
 }

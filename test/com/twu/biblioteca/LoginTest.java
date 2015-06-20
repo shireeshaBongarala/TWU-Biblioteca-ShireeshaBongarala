@@ -87,4 +87,18 @@ public class LoginTest {
 
         assertThat(actualUserState,is(0));
     }
+    @Test
+    public void shouldReturnUserWhenLibraryIdAndPasswordAreValid(){
+        Login login = new Login(outputHandlerMock,inputHandlerMock,authentication);
+        User user = new User("shireesha","shiree@abc",123456,"password123",1);
+            when(authentication.validate("123-4567","password123"))
+                    .thenReturn(true);
+        when(authentication.getUser("123-4567"))
+                .thenReturn(user);
+        when(inputHandlerMock.readLine())
+                .thenReturn("\n", "123-4567", "password123");
+        User actualUser = login.performAction(user);
+
+        assertThat(actualUser,is(user));
+    }
 }
