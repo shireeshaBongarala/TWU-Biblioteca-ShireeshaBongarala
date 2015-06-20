@@ -36,11 +36,4 @@ public class User {
         return libraryID.equals(user.libraryID);
 
     }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + libraryID.hashCode();
-        return result;
-    }
 }

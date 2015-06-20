@@ -25,4 +25,12 @@ public class UserTest {
 
         assertTrue(user.equals(anotherUser));
     }
+    @Test
+    public void shouldReturnUserType(){
+        User user = new User("shireesha","abc@gmail.com",12345,"123-4567",0);
+
+        int actualUserType = user.getUserType();
+
+        assertThat(actualUserType,is(0));
+    }
 }
