@@ -8,7 +8,9 @@ import org.mockito.Mock;
 import java.util.List;
 
 import static com.twu.biblioteca.Messages.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
 public class LoginTest {
@@ -76,5 +78,13 @@ public class LoginTest {
                 .thenReturn("\n","123-4567","password123");
         login.performAction(user);
         verify(authentication).validate("123-4567", "password123");
+    }
+    @Test
+    public void shouldReturnUserState(){
+        Login login = new Login(outputHandlerMock,inputHandlerMock,authentication);
+
+        int actualUserState = login.getUserState();
+
+        assertThat(actualUserState,is(0));
     }
 }

@@ -27,5 +27,8 @@ public class Login {
         return user;
     }
 
+    public int getUserState(){
+        return  userState;
+    }
 
 }
