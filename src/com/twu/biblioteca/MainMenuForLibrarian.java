@@ -26,6 +26,7 @@ public class MainMenuForLibrarian {
         int choice;
         do {
         outputHandler.display(MAIN_MENU_FOR_LIBRARIAN);
+            outputHandler.display(ENTER_YOUR_CHOICE);
          choice = inputHandler.readInteger();
 
         switch (choice) {

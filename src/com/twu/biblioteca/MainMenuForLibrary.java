@@ -30,8 +30,8 @@ public class MainMenuForLibrary {
         int choice;
         do {
             outputHandler.display(MAIN_MENU_OPTIONS);
+            outputHandler.display(ENTER_YOUR_CHOICE);
             choice = inputHandler.readInteger();
-
 
             switch (choice) {
                 case 1:
@@ -50,7 +50,6 @@ public class MainMenuForLibrary {
             if (choice == 3 && login.getUserState()!=0)
                 return 0;
         } while (choice != 4);
-
         return 1;
     }
 }

@@ -18,6 +18,7 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
         int choice;
         do {
             outputHandler.display(MAIN_MENU_FOR_LOGGEDIN_USER);
+            outputHandler.display(ENTER_YOUR_CHOICE);
             choice = inputHandler.readInteger();
 
             switch (choice) {
