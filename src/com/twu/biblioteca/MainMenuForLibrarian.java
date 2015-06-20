@@ -22,7 +22,7 @@ public class MainMenuForLibrarian {
         this.userDetailsForLibrarian = userDetailsForLibrarian;
     }
 
-    public void start() {
+    public int start() {
         int choice;
         do {
         outputHandler.display(MAIN_MENU_FOR_LIBRARIAN);
@@ -48,5 +48,6 @@ public class MainMenuForLibrarian {
                 break;
         }
     }while (choice != 5);
+        return 0;
     }
 }

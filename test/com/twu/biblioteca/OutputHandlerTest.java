@@ -45,9 +45,9 @@ public class OutputHandlerTest {
 
     @Test
     public void testToCheckIfMainMenuOptionsAreDisplayedOnScreen(){
-        OutputHandler.display(Messages.MENU_OPTIONS);
+        OutputHandler.display(Messages.MAIN_MENU_OPTIONS);
 
-        String actualMainMenuOptions = Messages.MENU_OPTIONS;
+        String actualMainMenuOptions = Messages.MAIN_MENU_OPTIONS;
 
         assertThat(actualMainMenuOptions,is(outContent.toString()));
     }

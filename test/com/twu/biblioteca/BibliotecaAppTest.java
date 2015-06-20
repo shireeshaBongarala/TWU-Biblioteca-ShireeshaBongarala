@@ -76,6 +76,7 @@ public class BibliotecaAppTest {
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
         user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
+        BibliotecaApp.loopVariable = 0;
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
@@ -94,6 +95,7 @@ public class BibliotecaAppTest {
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
         user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 1);
+        BibliotecaApp.loopVariable = 0;
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
@@ -105,5 +107,23 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(mainMenuForLoggedInUserMock,atLeast(1)).start();
+    }
+    @Test
+    public void shouldCallMainMenuForLibrarianWhenUserIsLibrarian(){
+        Library library = new Library();
+        Books expectedBooks = new Books(library.getAvailableBookList());
+        user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 2);
+        BibliotecaApp.loopVariable = 0;
+
+        BibliotecaApp bibliotecaApp =
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
+                        checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock,
+                        movieListOptionMock,userDetailsForLibrarianMock,loginMock,mainMenuForLibraryMock,mainMenuForLoggedInUserMock,mainMenuForLibrarianMock);
+
+        when(mainMenuForLibrarianMock.start())
+                .thenReturn(1);
+        bibliotecaApp.start();
+
+        verify(mainMenuForLibrarianMock,atLeast(1)).start();
     }
 }
