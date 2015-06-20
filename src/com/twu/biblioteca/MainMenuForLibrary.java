@@ -26,11 +26,12 @@ public class MainMenuForLibrary {
         this.user = user;
     }
 
-    public void start() {
+    public int start() {
         int choice;
         do {
             outputHandler.display(MAIN_MENU_OPTIONS);
             choice = inputHandler.readInteger();
+
 
             switch (choice) {
                 case 1:
@@ -43,12 +44,13 @@ public class MainMenuForLibrary {
                    EntryPoint.user = login.performAction(user);
                     break;
                 case 4:
-                    BibliotecaApp.loopVariable = 1;
                     outputHandler.display(QUIT_MESSAGE);
                     break;
             }
             if (choice == 3 && login.getUserState()!=0)
-                break;
+                return 0;
         } while (choice != 4);
+
+        return 1;
     }
 }

@@ -14,7 +14,7 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
     }
 
     @Override
-    public void start() {
+    public int start() {
         int choice;
         do {
             outputHandler.display(MAIN_MENU_FOR_LOGGEDIN_USER);
@@ -52,5 +52,7 @@ public class MainMenuForLoggedInUser extends MainMenuForLibrary {
                     break;
             }
         } while (choice != 8);
+
+        return 0;
     }
 }

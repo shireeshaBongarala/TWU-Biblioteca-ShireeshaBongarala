@@ -6,6 +6,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.io.ByteArrayInputStream;
+
+import static com.twu.biblioteca.BibliotecaApp.*;
+import static com.twu.biblioteca.EntryPoint.*;
 import static com.twu.biblioteca.Messages.*;
 import static org.junit.Assert.assertEquals;
 
@@ -44,6 +48,8 @@ public class BibliotecaAppTest {
     private MainMenuForLoggedInUser mainMenuForLoggedInUserMock;
     @Mock
     private MainMenuForLibrarian mainMenuForLibrarianMock;
+    @Mock
+    private User userMock;
 
     @Before
     public void setUp(){
@@ -54,8 +60,8 @@ public class BibliotecaAppTest {
     public void shouldDisplayWelcomeMessageWhenBibliotecaAppStarts() {
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
-        EntryPoint.user = new User("shiree","shiree@gmail.com",12345,"123-6789",0);
-        BibliotecaApp.loopVariable = 1;
+        user = new User("shiree","shiree@gmail.com",12345,"123-6789",0);
+        loopVariable = 1;
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
@@ -64,5 +70,24 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(outputHandlerMock).display(WELCOME_MESSAGE);
+    }
+    @Test
+    public void shouldCallMainMenuForLibraryWhenUserIsVisitor(){
+        Library library = new Library();
+        Books expectedBooks = new Books(library.getAvailableBookList());
+        user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 0);
+
+        BibliotecaApp bibliotecaApp =
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
+                        checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock,
+                        movieListOptionMock,userDetailsForLibrarianMock,loginMock,mainMenuForLibraryMock,mainMenuForLoggedInUserMock,mainMenuForLibrarianMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+        when(mainMenuForLibraryMock.start())
+                .thenReturn(1);
+        bibliotecaApp.start();
+
+        verify(mainMenuForLibraryMock,atLeast(1)).start();
     }
 }
