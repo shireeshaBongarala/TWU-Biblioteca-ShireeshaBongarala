@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 
-public class outputHandlerTest {
+public class OutputHandlerTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     OutputHandler OutputHandler;
 

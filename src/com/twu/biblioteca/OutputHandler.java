@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.io.PrintStream;
 
-public class OutputHandler {
+class OutputHandler {
 
     PrintStream out;
 
