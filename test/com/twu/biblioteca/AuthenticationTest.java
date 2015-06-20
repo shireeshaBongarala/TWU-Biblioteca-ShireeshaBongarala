@@ -76,4 +76,13 @@ public class AuthenticationTest {
 
         assertThat(actualResult,is(false));
     }
+
+    @Test
+    public void shouldReturnFalseIfValidLibrarianIdAndInValidPasswordIsEntered(){
+        Authentication authentication = new Authentication();
+        
+        boolean actualResult = authentication.validate("000-0123","password");
+
+        assertThat(actualResult,is(false));
+    }
 }
