@@ -49,6 +49,9 @@ public class BibliotecaApp {
             if(user.getUserType() == 0){
                 loopVariable = mainMenuForLibrary.start();
             }
+            if(user.getUserType() == 1) {
+                loopVariable = mainMenuForLoggedInUser.start();
+            }
         }
     }
 }

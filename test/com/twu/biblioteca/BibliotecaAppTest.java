@@ -82,12 +82,28 @@ public class BibliotecaAppTest {
                         checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock,
                         movieListOptionMock,userDetailsForLibrarianMock,loginMock,mainMenuForLibraryMock,mainMenuForLoggedInUserMock,mainMenuForLibrarianMock);
 
-        when(inputHandlerMock.readInteger())
-                .thenReturn(3,4);
+
         when(mainMenuForLibraryMock.start())
                 .thenReturn(1);
         bibliotecaApp.start();
 
         verify(mainMenuForLibraryMock,atLeast(1)).start();
+    }
+    @Test
+    public void shouldCallMainMenuForLoggedInUserWhenUserIsLoggedInUser(){
+        Library library = new Library();
+        Books expectedBooks = new Books(library.getAvailableBookList());
+        user = new User("visitor", "visitor@gmail.com", 123456, "000-0000", 1);
+
+        BibliotecaApp bibliotecaApp =
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
+                        checkOutItemMock, moviesMock,authenticationMock,bookListOptionMock,
+                        movieListOptionMock,userDetailsForLibrarianMock,loginMock,mainMenuForLibraryMock,mainMenuForLoggedInUserMock,mainMenuForLibrarianMock);
+
+        when(mainMenuForLoggedInUserMock.start())
+                .thenReturn(1);
+        bibliotecaApp.start();
+
+        verify(mainMenuForLoggedInUserMock,atLeast(1)).start();
     }
 }
