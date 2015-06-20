@@ -54,9 +54,8 @@ public class BibliotecaAppTest {
     public void shouldDisplayWelcomeMessageWhenBibliotecaAppStarts() {
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
-
-        when(inputHandlerMock.readInteger())
-                .thenReturn(4);
+        EntryPoint.user = new User("shiree","shiree@gmail.com",12345,"123-6789",0);
+        BibliotecaApp.loopVariable = 1;
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnItemMock,
@@ -64,7 +63,6 @@ public class BibliotecaAppTest {
                         movieListOptionMock,userDetailsForLibrarianMock,loginMock,mainMenuForLibraryMock,mainMenuForLoggedInUserMock,mainMenuForLibrarianMock);
         bibliotecaApp.start();
 
-
-        verify(outputHandlerMock,atLeast(1)).display(WELCOME_MESSAGE);
+        verify(outputHandlerMock).display(WELCOME_MESSAGE);
     }
 }

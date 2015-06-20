@@ -19,7 +19,7 @@ public class BibliotecaApp {
     MainMenuForLibrary mainMenuForLibrary;
     MainMenuForLoggedInUser mainMenuForLoggedInUser;
     MainMenuForLibrarian mainMenuForLibrarian;
-    static int mainVariable = 0;
+    static int loopVariable = 0;
 
 
     public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books,
@@ -45,7 +45,7 @@ public class BibliotecaApp {
     public void start() {
         outputHandler.display(WELCOME_MESSAGE);
 
-          while(mainVariable == 0) {
+          while(loopVariable == 0) {
         if (user.getUserType() == 0)
             mainMenuForLibrary.start();
         if (user.getUserType() == 1)
