@@ -18,7 +18,7 @@ public class Library {
 
         checkedOutBookList.add(new Book("Let Us C","balagurusamy",1997));
 
-        availableBookList.add(new Book("C Balagurusamy", "Balagurusamy", 1990));
+        availableBookList.add(new Book("C-Balagurusamy", "Balagurusamy", 1990));
         availableBookList.add(new Book("C++", "Balagurusamy", 1995));
         availableBookList.add(new Book("Java", "O'Reilly", 2012));
 

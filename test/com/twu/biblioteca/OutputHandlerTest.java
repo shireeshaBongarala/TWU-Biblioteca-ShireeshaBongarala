@@ -36,7 +36,7 @@ public class OutputHandlerTest {
         Library library = new Library();
         OutputHandler.display(new Books(library.getAvailableBookList()));
 
-        String actualListOfBooks = "C Balagurusamy    Balagurusamy    1990\n" +
+        String actualListOfBooks = "C-Balagurusamy    Balagurusamy    1990\n" +
                 "C++    Balagurusamy    1995\n" +
                 "Java    O'Reilly    2012\n";
 

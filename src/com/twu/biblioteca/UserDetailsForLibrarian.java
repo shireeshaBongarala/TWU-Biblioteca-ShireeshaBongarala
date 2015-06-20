@@ -19,7 +19,7 @@ public class UserDetailsForLibrarian {
             for (Map.Entry<Book, User> entry : entrySet) {
                 Book book = entry.getKey();
                 User user = entry.getValue();
-                String output = book.toString() + user.toString();
+                String output ="Book: " +  book.toString() + " " + user.toString();
                 outputHandler.display(output);
             }
         }
@@ -31,7 +31,7 @@ public class UserDetailsForLibrarian {
             for (Map.Entry<Movie, User> entry : entrySet1) {
                 Movie movie = entry.getKey();
                 User user = entry.getValue();
-                String output = movie.toString() + user.toString();
+                String output = "Movie: " + movie.toString() + "  " + user.toString();
                 outputHandler.display(output);
             }
 
